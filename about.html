@@ -583,23 +583,11 @@
         }
 
         // 2. Nav Logic (Kept exactly as is)
-// 3. Navigation & Mobile Menu Logic
-const menuBtn = document.getElementById('menu-btn');
-const closeMenu = document.getElementById('close-menu');
-const mobileMenu = document.getElementById('mobile-menu');
-
-// Open menu
-if(menuBtn) menuBtn.onclick = () => mobileMenu.classList.add('open');
-
-// Close menu via X button
-if(closeMenu) closeMenu.onclick = () => mobileMenu.classList.remove('open');
-
-// NEW: Close menu automatically when any link inside it is clicked
-const mobileLinks = document.querySelectorAll('.mobile-link');
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-    });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        if (mobileMenuBtn) mobileMenuBtn.onclick = () => mobileNavOverlay.classList.add('open');
+        if (mobileMenuClose) mobileMenuClose.onclick = () => mobileNavOverlay.classList.remove('open');
 
         // --- 3. UNIFIED BOT LOGIC ---
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQmrjUara4qVeEMua8JA3jFnUguv2O0tUyF5P0arjeuFlDwfTNkCZGoLxyaCGNbLG-/exec';
