@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Healthcare | Dr. Ravi Kumar - Lead Neuro-Rehab Specialist</title>
+    <link rel="icon" type="image/jpg" href="Logo3.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .clinical-blue {
+            color: #0056b3;
+        }
+
+        .bg-clinical-blue {
+            background-color: #0056b3;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .whatsapp-float {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Chatbot Styles */
+        #chat-window {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(20px) scale(0.9);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #chat-window.open {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .chat-bubble {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .bot-msg {
+            background: #f1f5f9;
+            color: #1e293b;
+            border-bottom-left-radius: 4px;
+        }
+
+        .user-msg {
+            background: #0056b3;
+            color: white;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+
+        .pay-proof-btn {
+            background: #059669;
+            color: white;
+            font-weight: 800;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 8px;
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+        }
+
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 overflow-x-hidden">
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919708059081?text=Hi%20Prism%20Healthcare,%20I%20would%20like%20to%20book%20an%20appointment."
+        class="fixed bottom-6 right-6 z-[100] bg-green-500 text-white p-4 rounded-full shadow-2xl whatsapp-float flex items-center justify-center hover:scale-110 transition-transform">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- Bot Toggle -->
+    <div class="fixed bottom-6 left-6 z-[100]">
+        <button id="chat-toggle"
+            class="bg-clinical-blue text-white p-4 rounded-full shadow-2xl hover:rotate-12 transition-all">
+            <i data-lucide="bot" class="w-8 h-8"></i>
+        </button>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div id="chat-window"
+        class="fixed bottom-24 left-6 w-[350px] h-[550px] bg-white shadow-2xl rounded-2xl z-[100] flex flex-col border border-slate-100 overflow-hidden">
+        <div class="bg-clinical-blue p-4 text-white flex justify-between items-center shadow-md">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"><i
+                        data-lucide="shield-check" class="w-5 h-5"></i></div>
+                <span class="font-bold text-sm uppercase">Prism Assistant</span>
+            </div>
+            <button id="close-chat"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        <div id="chat-content" class="flex-1 overflow-y-auto p-4 flex flex-col bg-slate-50"></div>
+        <div id="chat-input-area" class="hidden p-3 bg-white border-t flex gap-2">
+            <input type="text" id="bot-input" class="flex-1 text-sm p-3 bg-slate-100 rounded-xl outline-none border"
+                placeholder="Type here...">
+            <button id="send-btn" class="bg-clinical-blue text-white p-3 rounded-xl"><i data-lucide="send"
+                    class="w-4 h-4"></i></button>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+
+            <a href="index.html" class="flex items-center group">
+                <div class="relative flex-shrink-0 mr-3">
+                    <img src="Prism logo.jpeg" alt="Prism Logo"
+                        class="h-11 w-11 object-cover rounded-xl shadow-sm border border-slate-100 group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-clinical-blue/10 rounded-xl blur-md -z-10"></div>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <span class="text-2xl font-black tracking-tighter text-gray-900 leading-none">P R I S M</span>
+                    <div class="flex items-center">
+                        <p
+                            class="text-[10px] uppercase tracking-[0.3em] text-clinical-blue font-extrabold leading-none">
+                            Healthcare</p>
+                    </div>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex space-x-8 items-center font-bold text-sm text-slate-600">
+                <a href="index.html"
+                    class="text-clinical-blue hover:opacity-80 transition-all border-b-2 border-clinical-blue pb-1">Home</a>
+                <a href="about.html"
+                    class="hover:text-clinical-blue transition-all pb-1 border-b-2 border-transparent hover:translate-y-0.5 active:scale-95">About</a>
+                <a href="services.html"
+                    class="hover:text-clinical-blue transition-all pb-1 border-b-2 border-transparent hover:translate-y-0.5 active:scale-95">Services</a>
+                <a href="careers.html"
+                    class="hover:text-clinical-blue transition-all pb-1 border-b-2 border-transparent hover:translate-y-0.5 active:scale-95">Careers</a>
+                <a href="appointment.html"
+                    class="bg-clinical-blue text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-0.5 active:scale-95">
+                    Make Appointment
+                </a>
+            </div>
+
+            <button id="menu-btn"
+                class="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors focus:outline-none">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Slide-out -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-white flex flex-col p-8 lg:hidden">
+        <div class="flex justify-end">
+            <button id="close-menu" class="p-2 text-slate-500"><i data-lucide="x" class="w-10 h-10"></i></button>
+        </div>
+        <div class="flex flex-col gap-8 mt-12 text-3xl font-bold">
+            <a href="index.html" class="mobile-link text-clinical-blue">Home</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="services.html" class="mobile-link">Services</a>
+            <a href="careers.html" class="mobile-link">Careers</a>
+            <a href="appointment.html" class="mobile-link text-clinical-blue">Make Appointment</a>
+            <a href="https://wa.me/919708059081" class="text-green-600 flex items-center gap-2">WhatsApp Us <i
+                    data-lucide="external-link"></i></a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-30 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -z-10 opacity-10">
+            <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000"
+                alt="Neurology bg" class="w-[700px]">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <span
+                    class="inline-block py-1 px-1 pt-1 rounded-full bg-blue-50 text-clinical-blue text-xs font-bold uppercase tracking-wider mb-4">Leading
+                    Physiotherapy Centre in Bihar</span>
+
+                <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.1] mb-6">
+                    Advanced <span class="clinical-blue">Neurological</span> &<span class="clinical-blue">
+                        Orthopaedic</span> Rehabilitation.
+                </h1>
+                <p class="text-lg text-gray-600 mb-4 lg:pt-20 leading-relaxed">
+                    Under the expert guidance of <strong>Dr. Ravi Kumar (PT)</strong> and his <strong>Specialized
+                        team</strong>, We are committed to <strong>Transforming Pain into Power</strong></strong>. By
+                    providing
+                    comprehensive, evidence-based physiotherapy care across orthopedics, pediatrics, stroke
+                    rehabilitation, spinal injuries, and musculoskeletal conditions. Our focus is on delivering safe,
+                    effective treatment tailored to each patient’s specific condition and recovery goals.
+                </p>
+
+                <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+                    We offer dedicated <strong>one-on-one sessions</strong> with </strong>Personalized treatment
+                    programs</strong>, ensuring every patient
+                    receives focused attention and high-quality care. By following globally accepted therapy standards
+                    and combining them with hands-on clinical expertise, we aim to improve mobility, reduce pain,
+                    enhance function, and support long-term recovery.
+                </p>
+
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Our goal is not just treatment, but helping you regain independence and return to your daily life
+                    with confidence.
+                </p>
+                <div class="flex flex-wrap gap-6 mt-6">
+                    <a href="https://wa.me/919708059081"
+                        class="bg-clinical-blue text-white px-10 py-5 rounded-2xl font-bold shadow-xl hover:-translate-y-1 transition-all flex items-center gap-3">
+                        Book via WhatsApp <i data-lucide="chevron-right"></i>
+                    </a>
+
+                    <button onclick="document.getElementById('chat-toggle').click()"
+                        class="bg-white border-2 border-slate-200 text-slate-700 px-10 py-5 rounded-2xl font-bold shadow-xl hover:-translate-y-1 transition-all flex items-center gap-3">
+                        Chat with Assistant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Grid with Specific Redirects -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 uppercase tracking-tighter">Comprehensive &nbsp; Care
+                    &nbsp;
+                    Portfolio</h2>
+                <div class="w-20 h-1.5 bg-clinical-blue mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto italic">Utilizing advanced modalities and manual expertise to
+                    restore your mobility.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 1. Neurological Rehab -->
+                <div
+                    class="reveal p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-clinical-blue transition-colors text-clinical-blue group-hover:text-white">
+                        <i data-lucide="brain-circuit"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Neurological Rehab</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Specialized recovery programs for Stroke,
+                        Parkinson’s, and Spinal Cord injuries.</p>
+                    <a href="services.html#neuro"
+                        class="text-clinical-blue font-bold text-xs uppercase flex items-center gap-2">View Details <i
+                            data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- 2. Musculoskeletal Therapy -->
+                <div
+                    class="reveal p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-clinical-blue transition-colors text-clinical-blue group-hover:text-white">
+                        <i data-lucide="bone"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Orthopaedic Therapy</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Advanced treatment for chronic back pain,
+                        cervical spondylosis, and joint arthritis.</p>
+                    <a href="services.html#ortho"
+                        class="text-clinical-blue font-bold text-xs uppercase flex items-center gap-2">View Details <i
+                            data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+
+                <!-- 3. Pediatric Physiotherapy -->
+                <div
+                    class="reveal p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-clinical-blue transition-colors text-clinical-blue group-hover:text-white">
+                        <i data-lucide="baby"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pediatric Physiotherapy</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Dedicated care for Cerebral Palsy, Delayed
+                        Milestones, and other congenital conditions.</p>
+                    <a href="services.html#pediatric"
+                        class="text-clinical-blue font-bold text-xs uppercase flex items-center gap-2">View Details <i
+                            data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- 4. Sports Injury -->
+                <div
+                    class="reveal p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-clinical-blue transition-colors text-clinical-blue group-hover:text-white">
+                        <i data-lucide="trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sports Injury</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">Expert management for ACL injuries, Ligament
+                        tears, and Return-to-Sport conditioning.</p>
+                    <a href="services.html#sports"
+                        class="text-clinical-blue font-bold text-xs uppercase flex items-center gap-2">View Details <i
+                            data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- 5. Advanced Modalities -->
+                <div
+                    class="reveal p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-clinical-blue transition-colors text-clinical-blue group-hover:text-white">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Advanced Modalities</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">IASTM, Dry Needling, and Cupping therapy to
+                        accelerate tissue healing.</p>
+                    <a href="services.html#modalities"
+                        class="text-clinical-blue font-bold text-xs uppercase flex items-center gap-2">View Details <i
+                            data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+
+                <!-- Image Card -->
+                <div class="reveal rounded-2xl overflow-hidden shadow-sm relative group h-full min-h-[250px]">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
+                        class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                        alt="Clinical treatment">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                        <p class="text-white font-bold">Evidence-Based Clinical Environment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcome Focus Section -->
+    <section class="py-24 bg-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold mb-4 uppercase italic tracking-tighter">The &nbsp; Outcome &nbsp; Focus
+            </h2>
+            <div class="w-20 h-1.5 bg-clinical-blue mx-auto rounded-full mb-16"></div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-12">
+
+                <!-- Item 1 -->
+                <div class="reveal group cursor-pointer">
+                    <div
+                        class="w-20 h-20 bg-blue-50 text-clinical-blue rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 transform group-hover:scale-125 group-hover:bg-clinical-blue group-hover:text-white group-hover:shadow-[0_20px_40px_-10px_rgba(0,86,179,0.5)]">
+                        <i data-lucide="heart" class="w-8 h-8"></i>
+                    </div>
+                    <p
+                        class="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 group-hover:text-clinical-blue transition-colors duration-300">
+                        Pain Relief</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="reveal group cursor-pointer" style="transition-delay: 100ms;">
+                    <div
+                        class="w-20 h-20 bg-blue-50 text-clinical-blue rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 transform group-hover:scale-125 group-hover:bg-clinical-blue group-hover:text-white group-hover:shadow-[0_20px_40px_-10px_rgba(0,86,179,0.5)]">
+                        <i data-lucide="move" class="w-8 h-8"></i>
+                    </div>
+                    <p
+                        class="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 group-hover:text-clinical-blue transition-colors duration-300">
+                        Mobility</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="reveal group cursor-pointer" style="transition-delay: 200ms;">
+                    <div
+                        class="w-20 h-20 bg-blue-50 text-clinical-blue rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 transform group-hover:scale-125 group-hover:bg-clinical-blue group-hover:text-white group-hover:shadow-[0_20px_40px_-10px_rgba(0,86,179,0.5)]">
+                        <i data-lucide="zap" class="w-8 h-8"></i>
+                    </div>
+                    <p
+                        class="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 group-hover:text-clinical-blue transition-colors duration-300">
+                        Strength</p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="reveal group cursor-pointer" style="transition-delay: 300ms;">
+                    <div
+                        class="w-20 h-20 bg-blue-50 text-clinical-blue rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 transform group-hover:scale-125 group-hover:bg-clinical-blue group-hover:text-white group-hover:shadow-[0_20px_40px_-10px_rgba(0,86,179,0.5)]">
+                        <i data-lucide="smile" class="w-8 h-8"></i>
+                    </div>
+                    <p
+                        class="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 group-hover:text-clinical-blue transition-colors duration-300">
+                        Independence</p>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="reveal group cursor-pointer" style="transition-delay: 400ms;">
+                    <div
+                        class="w-20 h-20 bg-blue-50 text-clinical-blue rounded-full flex items-center justify-center mx-auto mb-6 transition-all duration-500 transform group-hover:scale-125 group-hover:bg-clinical-blue group-hover:text-white group-hover:shadow-[0_20px_40px_-10px_rgba(0,86,179,0.5)]">
+                        <i data-lucide="bike" class="w-8 h-8"></i>
+                    </div>
+                    <p
+                        class="font-black text-[10px] uppercase tracking-[0.2em] text-slate-400 group-hover:text-clinical-blue transition-colors duration-300">
+                        Recovery</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Slider -->
+    <section id="testimonials" class="py-24 lg:py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl lg:text-4xl font-black text-gray-900 mb-4 uppercase tracking-tighter italic">Patient
+                    &nbsp;
+                    Success &nbsp; Stories</h2>
+                <div class="w-20 h-1.5 bg-clinical-blue mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-500 font-medium">Verified reviews from our Google Business Profile</p>
+            </div>
+
+            <div class="relative px-4">
+                <div id="testimonial-track"
+                    class="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] gap-8">
+                    <!-- Cards -->
+                    <div
+                        class="w-full md:w-[calc(33.333%-22px)] shrink-0 bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex gap-1 text-yellow-400 mb-6"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-gray-600 italic mb-10 leading-relaxed font-medium">"Best neuro-rehabilitation
+                                center in Begusarai. Dr. Ravi is highly professional and his treatment plan for my
+                                father's stroke recovery was excellent."</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-clinical-blue text-white rounded-2xl flex items-center justify-center font-bold">
+                                A</div>
+                            <div>
+                                <h4 class="font-bold">Amit Kumar</h4>
+                                <p class="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest">Local
+                                    Guide</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full md:w-[calc(33.333%-22px)] shrink-0 bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex gap-1 text-yellow-400 mb-6"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-gray-600 italic mb-10 leading-relaxed font-medium">"I was suffering from
+                                chronic back pain for 2 years. After sessions of manual therapy, I am completely
+                                pain-free and active again."</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-clinical-blue text-white rounded-2xl flex items-center justify-center font-bold">
+                                P</div>
+                            <div>
+                                <h4 class="font-bold">Priya Sharma</h4>
+                                <p class="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest">Patient
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full md:w-[calc(33.333%-22px)] shrink-0 bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex gap-1 text-yellow-400 mb-6"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-gray-600 italic mb-10 leading-relaxed font-medium">"Very clean and advanced
+                                facility. Highly recommended for sports injury rehabilitation. Staff is very supportive
+                                throughout the journey."</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-clinical-blue text-white rounded-2xl flex items-center justify-center font-bold">
+                                R</div>
+                            <div>
+                                <h4 class="font-bold">Rajesh Singh</h4>
+                                <p class="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest">Athlete
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full md:w-[calc(33.333%-22px)] shrink-0 bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex gap-1 text-yellow-400 mb-6"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-gray-600 italic mb-10 leading-relaxed font-medium">"Exceptional care for
+                                pediatric conditions. We saw great improvement in our child's mobility within a few
+                                weeks."</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-clinical-blue text-white rounded-2xl flex items-center justify-center font-bold">
+                                S</div>
+                            <div>
+                                <h4 class="font-bold">Sneha Gupta</h4>
+                                <p class="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest">Parent
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-full md:w-[calc(33.333%-22px)] shrink-0 bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex gap-1 text-yellow-400 mb-6"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-gray-600 italic mb-10 leading-relaxed font-medium">"Post-surgery rehab was
+                                top-notch. Dr. Ravi's expertise in manual therapy is truly impressive and
+                                results-driven."</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-clinical-blue text-white rounded-2xl flex items-center justify-center font-bold">
+                                V</div>
+                            <div>
+                                <h4 class="font-bold">Vikram Rathore</h4>
+                                <p class="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest">Patient
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-20">
+                <a href="https://www.google.com/search?q=prism+physiotherapy+begusarai" target="_blank"
+                    class="inline-flex items-center gap-2 bg-clinical-blue text-white px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-blue-800 transition shadow-lg">
+                    See More Reviews <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Service Page Booster Section - Exact Match Scaling -->
+    <section id="contact-section" class="py-12 md:py-24 bg-slate-50 relative overflow-hidden">
+        <!-- Decorative background glow -->
+        <div
+            class="absolute top-1/2 left-0 w-72 h-72 md:w-96 md:h-96 bg-clinical-blue/5 rounded-full blur-[80px] md:blur-[100px] -translate-x-1/2 -translate-y-1/2">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <!-- Action-Oriented Heading (Matches Index Font Sizes) -->
+            <div class="text-center mb-10 md:mb-16">
+                <span
+                    class="inline-block py-1 px-4 rounded-full bg-blue-100 text-clinical-blue text-[10px] md:text-xs font-extrabold uppercase tracking-widest mb-4">
+                    Specialized Clinical Inquiry
+                </span>
+                <h2
+                    class="text-3xl md:text-6xl font-black text-gray-900 mb-4 md:mb-6 uppercase tracking-tighter italic leading-tight md:leading-none">
+                    Contact &nbsp; us &nbsp; to &nbsp; <br>
+                    <span class="text-clinical-blue">booster &nbsp; your &nbsp; recovery</span>
+                </h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-base md:text-xl font-medium px-2">
+                    Take the first step toward specialized healing. Our clinical experts are ready to design your <span
+                        class="text-slate-900 font-bold">Advanced Recovery Protocol</span>.
+                </p>
+            </div>
+
+            <!-- Main Container: flex-col for mobile, flex-row for desktop -->
+            <div
+                class="bg-white rounded-[2.5rem] md:rounded-[4rem] shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-100">
+
+                <!-- Left Info Panel (Appears on top on mobile) -->
+                <div class="md:w-2/5 bg-clinical-blue p-8 md:p-12 text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-black mb-6 md:mb-8 uppercase tracking-tight">Clinical <br
+                                class="hidden md:block">Excellence</h3>
+
+                        <div class="space-y-6 md:space-y-8">
+                            <!-- Points -->
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-xl flex shrink-0 items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm uppercase tracking-wider">Evidence-Based</h4>
+                                    <p class="text-xs text-blue-100 opacity-80">Global therapy standards.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 bg-white/10 rounded-xl flex shrink-0 items-center justify-center">
+                                    <i data-lucide="heart-pulse" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm uppercase tracking-wider">Expert Oversight</h4>
+                                    <p class="text-xs text-blue-100 opacity-80">Supervised by Dr. Ravi Kumar.</p>
+                                </div>
+                            </div>
+
+                            <!-- Contact Links -->
+                            <div class="pt-6 border-t border-white/10 space-y-4">
+                                <a href="tel:+919708059081" class="flex items-center gap-3 group">
+                                    <i data-lucide="phone"
+                                        class="w-5 h-5 text-white group-hover:scale-110 transition-transform"></i>
+                                    <span class="font-bold text-base md:text-lg">+91 97080 59081</span>
+                                </a>
+                                <a href="mailto:info@prism.com" class="flex items-center gap-3 group">
+                                    <i data-lucide="mail"
+                                        class="w-5 h-5 text-white group-hover:scale-110 transition-transform"></i>
+                                    <span class="font-bold text-base md:text-lg">info@prism.com</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Status Status -->
+                    <div class="mt-8 md:mt-12">
+                        <div class="bg-white/10 p-3 md:p-4 rounded-2xl inline-flex items-center gap-3">
+                            <div class="w-2 h-2 md:w-3 md:h-3 bg-green-400 rounded-full animate-pulse"></div>
+                            <p class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-white">
+                                Clinicians Online Now</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Panel -->
+                <div class="md:w-3/5 p-8 md:p-12 bg-white">
+                    <form id="homeContactForm" class="space-y-5 md:space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-2">Full
+                                    Name</label>
+                                <input type="text" id="fc-name" placeholder="Enter Name" required
+                                    class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-clinical-blue transition-all text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-2">Phone
+                                    Number</label>
+                                <input type="tel" id="fc-phone" placeholder="Contact Number" required
+                                    class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-clinical-blue transition-all text-sm">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label
+                                class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-2">Condition
+                                Details</label>
+                            <textarea id="fc-message" rows="3 md:4"
+                                placeholder="Briefly describe your pain or condition..."
+                                class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-clinical-blue transition-all text-sm"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="group w-full bg-clinical-blue text-white font-black py-4 md:py-5 rounded-2xl shadow-xl hover:bg-blue-800 transition transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3 uppercase tracking-widest text-xs md:text-sm">
+                            Booster My Recovery
+                            <i data-lucide="rocket"
+                                class="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </button>
+
+                        <!-- Trust Badges -->
+                        <div class="flex items-center justify-center gap-4 md:gap-8 mt-4 md:mt-6">
+                            <div class="flex items-center gap-1.5 opacity-40">
+                                <i data-lucide="award" class="w-3 h-3"></i>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">Certified Rehab</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 opacity-40">
+                                <i data-lucide="lock" class="w-3 h-3"></i>
+                                <span class="text-[9px] font-bold uppercase tracking-tighter">Secure Privacy</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Map & Footer -->
+    <footer class="bg-slate-900 text-white pt-20 pb-12 rounded-t-[4rem]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12 mb-16">
+                <div>
+
+                    <!-- <img src="PrismLogo.jpeg" alt="Prism Logo" class="w-40 h-auto"> -->
+                    <img src="PrismLogo.jpeg" alt="Prism Logo" class="w-40 h-auto rounded-md">
+
+                    <!-- <h4 class="text-2xl font-extrabold mb-6 clinical-blue uppercase italic">PRISM Health</h4> -->
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8 italic">Excellence in specialized neurological
+                        and physical rehabilitation under Dr. Ravi Kumar. Follow our journey of recovery.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#" target="_blank"
+                            class="flex items-center gap-2 px-4 py-2 bg-[#1877F2] text-white rounded-xl text-xs font-bold shadow-lg hover:scale-105 transition-transform">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+                        </a>
+                        <a href="https://instagram.com/prismphysiotherapy" target="_blank"
+                            class="flex items-center gap-2 px-4 py-2 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white rounded-xl text-xs font-bold shadow-lg hover:scale-105 transition-transform">
+                            <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
+                        </a>
+                        <a href="#" target="_blank"
+                            class="flex items-center gap-2 px-4 py-2 bg-[#FF0000] text-white rounded-xl text-xs font-bold shadow-lg hover:scale-105 transition-transform">
+                            <i data-lucide="youtube" class="w-4 h-4"></i> YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <h5 class="font-bold text-xs uppercase tracking-widest text-clinical-blue mb-2 italic">Begusarai
+                            (HQ)</h5>
+                        <p class="text-sm text-slate-400">Main Road, Begusarai, Bihar</p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-xs uppercase tracking-widest text-clinical-blue mb-2 italic">Patna
+                            Unit</h5>
+                        <p class="text-sm text-slate-400">Kankarbagh Colony Road, Patna</p>
+                    </div>
+                    <div class="flex items-center gap-2 text-white font-bold hover:scale-105 transition-transform">
+                        <a href="tel:+919708059081"
+                            class="flex items-center gap-2 text-white font-bold hover:text-clinical-blue transition-colors">
+                            <i data-lucide="phone-call" class="text-clinical-blue w-5 h-5"></i>
+                            <span>+91 97080 59081</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rounded-3xl overflow-hidden h-48 border border-slate-800 shadow-xl">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.6!2d85.13!3d25.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5842f03901b5%3A0x747209930f78a2!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1704543200000"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div
+                class="border-t border-slate-800 pt-10 text-center text-slate-500 text-[10px] uppercase tracking-[0.3em] font-bold">
+                &copy; 2024 Prism Healthcare. Developed by Clinical Architect.
+            </div>
+        </div>
+    </footer>
+    <script>
+        lucide.createIcons();
+
+        // 1. NAVIGATION (Untouched)
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn) menuBtn.onclick = () => mobileMenu.classList.add('open');
+        if (closeMenu) closeMenu.onclick = () => mobileMenu.classList.remove('open');
+
+        // 2. DATA SCRIPT (INTEGRATED BOT LOGIC)
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQmrjUara4qVeEMua8JA3jFnUguv2O0tUyF5P0arjeuFlDwfTNkCZGoLxyaCGNbLG-/exec';
+        const chatWindow = document.getElementById('chat-window');
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatContent = document.getElementById('chat-content');
+        const botInputArea = document.getElementById('chat-input-area');
+        const botInput = document.getElementById('bot-input');
+
+        const prismData = {
+            teamInfo: "Our clinical team is led by **Dr. Ravi Kumar (MPT Neuro)**. We specialize in advanced Neurological, Orthopaedic, and Women's health rehabilitation. Click a specialist below to view their profile:",
+            services: "**Our Specializations:**\n• Neuro Rehab\n• Ortho & Spine Care\n• Pediatric Physio\n• Sports Injury\n• Women's Health",
+            locations: "**Unit 1 (HQ):** Main Road, Begusarai\n**Unit 2:** Kankarbagh Colony Road, Patna",
+            treatments: {
+                neuro: { title: "Neurological Rehab", info: "Specialized recovery for **Stroke, Parkinson's, and SCI** using NDT protocols." },
+                ortho: { title: "Ortho & Spine", info: "Treatment for **Slip Disc and Sciatica** using McKenzie/Mulligan techniques." },
+                peds: { title: "Pediatric Physio", info: "Helping children achieve milestones. Specialists in **CP and Autism**." },
+                women: { title: "Women's Health", info: "Care for **Pelvic Floor, Post-Natal core, and Diastasis Recti**." }
+            }
+        };
+
+        let bookingStep = 0;
+        let userData = { source: 'Assistant Bot', name: '', phone: '', location: '', condition: '', paymentProof: '', message: '', visitType: '', date: '', time: '', address: '' };
+
+        function openChat() {
+            chatWindow.classList.add('open');
+            if (chatContent.innerHTML === "") {
+                setTimeout(() => {
+                    appendMsg('bot', "Hi! 👋 I am your **Prism Assistant**. How can I help you today?");
+                    showMainMenu();
+                }, 400);
+            }
+        }
+        chatToggle.onclick = openChat;
+        document.getElementById('close-chat').onclick = () => chatWindow.classList.remove('open');
+
+        // BOLD TEXT LOGIC: Converts **text** to <strong>text</strong>
+        function appendMsg(sender, text) {
+            const div = document.createElement('div');
+            div.className = `chat-bubble ${sender === 'bot' ? 'bot-msg' : 'user-msg'}`;
+            let formattedText = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            div.innerHTML = formattedText;
+            chatContent.appendChild(div);
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+
+        function showMainMenu() {
+            const div = document.createElement('div');
+            div.id = "bot-options";
+            div.className = "flex flex-col gap-2 mb-4 mt-2";
+            div.innerHTML = `
+                <button onclick="handleBotAction('book')" class="text-left text-xs bg-clinical-blue text-white p-3 rounded-xl font-bold uppercase shadow-md italic">📅 Diagnostic Booking</button>
+                <button onclick="handleBotAction('doctor')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold hover:border-clinical-blue transition">👨‍⚕️ Our Specialized Team</button>
+                <button onclick="handleBotAction('services')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">🏥 Service Details</button>
+                <button onclick="handleBotAction('browse')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">🏥 Specilized care </button>
+                <button onclick="handleBotAction('loc')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">📍 Clinic Locations</button>
+                <button onclick="handleBotAction('help')" class="text-left text-xs bg-slate-800 text-white p-3 rounded-xl font-bold uppercase shadow-md">💬 Need Help / Message</button>
+            `;
+            chatContent.appendChild(div);
+            botInputArea.classList.add('hidden');
+        }
+
+        function handleBotAction(type) {
+            if (document.getElementById('bot-options')) document.getElementById('bot-options').remove();
+
+            if (type === 'doctor') {
+                appendMsg('bot', prismData.teamInfo);
+                const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex flex-col gap-2 mt-2";
+                div.innerHTML = `
+                    <a href="about.html#neuro" class="text-left text-[10px] bg-slate-100 p-3 rounded-xl font-bold uppercase border border-slate-200 hover:bg-clinical-blue hover:text-white transition">👨‍⚕️ Dr. Ravi Kumar (Director)</a>
+                    <a href="about.html#supriya" class="text-left text-[10px] bg-slate-100 p-3 rounded-xl font-bold uppercase border border-slate-200 hover:bg-clinical-blue hover:text-white transition">👩‍⚕️ Dr. Supriya (Consultant)</a>
+                    <a href="about.html#puja" class="text-left text-[10px] bg-slate-100 p-3 rounded-xl font-bold uppercase border border-slate-200 hover:bg-clinical-blue hover:text-white transition">👩‍⚕️ Dr. Puja (Consultant)</a>
+                    <button onclick="showMainMenu()" class="text-center text-[10px] font-bold text-slate-400 uppercase mt-2">🔙 Back to Menu</button>
+                `;
+                chatContent.appendChild(div);
+            }
+            else if (type === 'services') { appendMsg('bot', prismData.services); setTimeout(showMainMenu, 2000); }
+            else if (type === 'loc') { appendMsg('bot', prismData.locations); setTimeout(showMainMenu, 2000); }
+            else if (type === 'browse') {
+                appendMsg('bot', "Select a category to view details:");
+                const div = document.createElement('div'); div.id = "bot-options"; div.className = "grid grid-cols-2 gap-2 mt-2";
+                Object.keys(prismData.treatments).forEach(k => {
+                    div.innerHTML += `<button onclick="showTreatmentDetails('${k}')" class="bg-slate-100 p-2 rounded-lg text-[10px] font-bold border uppercase hover:bg-clinical-blue hover:text-white">${prismData.treatments[k].title}</button>`;
+                });
+                chatContent.appendChild(div);
+            }
+            else if (type === 'help') { appendMsg('bot', "Please type your query or message below:"); bookingStep = 50; botInputArea.classList.remove('hidden'); botInput.focus(); }
+            else if (type === 'book') {
+                appendMsg('bot', "Would you like to book a **Clinic Visit** or a **Home Visit**?");
+                const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex gap-2 mt-2";
+                div.innerHTML = `
+                    <button onclick="startBookingBranch('Clinic')" class="bg-clinical-blue text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏥 Clinic</button>
+                    <button onclick="startBookingBranch('Home')" class="bg-slate-800 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏠 Home</button>
+                `;
+                chatContent.appendChild(div);
+            }
+        }
+
+        function showTreatmentDetails(key) {
+            if (document.getElementById('bot-options')) document.getElementById('bot-options').remove();
+            const treat = prismData.treatments[key];
+            appendMsg('bot', `**${treat.title}**\n\n${treat.info}\n\nWould you like to schedule a session?`);
+            const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex flex-col gap-2 mt-2";
+            div.innerHTML = `
+                <button onclick="handleBotAction('book')" class="text-left text-xs bg-clinical-blue text-white p-3 rounded-xl font-bold uppercase shadow-sm italic">📅 Start Booking Now</button>
+                <button onclick="showMainMenu()" class="bg-slate-200 p-3 rounded-xl text-xs font-bold uppercase">🔙 Back to Menu</button>
+            `;
+            chatContent.appendChild(div);
+        }
+
+        function startBookingBranch(type) {
+            if (document.getElementById('bot-options')) document.getElementById('bot-options').remove();
+            userData.visitType = type;
+            appendMsg('user', `I want to book a ${type} Visit`);
+            appendMsg('bot', "What is the **Patient's Full Name**?");
+            bookingStep = 1; botInputArea.classList.remove('hidden'); botInput.focus();
+        }
+
+        async function processBotInput() {
+            const val = botInput.value.trim();
+            if (!val) return;
+            appendMsg('user', val);
+            botInput.value = "";
+
+            if (bookingStep === 50) { userData.message = val; appendMsg('bot', "What is your mobile number?"); bookingStep = 51; return; }
+            if (bookingStep === 51) { userData.phone = val; saveAndConfirm("Message Sent!"); return; }
+
+            switch (bookingStep) {
+                case 1: userData.name = val; appendMsg('bot', "Enter 10-digit **Mobile Number**?"); bookingStep = 2; break;
+                case 2: userData.phone = val;
+                    if (userData.visitType === 'Clinic') {
+                        appendMsg('bot', "Which location? (**Begusarai** or **Patna**)"); bookingStep = 3;
+                    } else {
+                        appendMsg('bot', "Provide your **Full Home Address**:"); bookingStep = 10;
+                    } break;
+                case 3: userData.location = val; appendMsg('bot', "Preferred **Date**? (e.g. 25th Dec)"); bookingStep = 4; break;
+                case 4: userData.date = val; appendMsg('bot', "Preferred **Time Slot**?"); bookingStep = 5; break;
+                case 5: userData.time = val; appendMsg('bot', "Describe the **Medical Condition**:"); bookingStep = 6; break;
+                case 6: userData.condition = val; askPaymentUI(); break;
+                case 10: userData.address = val; appendMsg('bot', "Requested **Date** for visit?"); bookingStep = 11; break;
+                case 11: userData.date = val; appendMsg('bot', "Describe the **Medical Condition**?"); bookingStep = 12; break;
+                case 12: userData.condition = val; askPaymentUI(); break;
+                case 20: userData.paymentProof = val; saveAndConfirm("✅ Booking confirmed!"); break;
+            }
+        }
+
+        function askPaymentUI() {
+            const payDiv = document.createElement('div');
+            payDiv.className = "bot-msg chat-bubble mb-4";
+            payDiv.innerHTML = `
+                <p class="mb-3">To finalize slot, pay the **₹500** booking fee.</p>
+                <p class="mb-3">UPI: <strong>prism.healthcare@upi</strong></p>
+                <div class="flex flex-col gap-2">
+                    <a href="upi://pay?pa=prism.healthcare@upi&pn=Prism%20Healthcare&am=500&cu=INR" class="bg-green-600 text-white p-3 rounded-xl text-center text-[10px] font-black uppercase">🚀 Pay via UPI App</a>
+                    <button onclick="paymentPaidDone()" class="bg-clinical-blue text-white p-3 rounded-xl text-[10px] font-black uppercase">✅ I Have Paid</button>
+                </div>
+            `;
+            chatContent.appendChild(payDiv);
+            chatContent.scrollTop = chatContent.scrollHeight;
+            botInputArea.classList.add('hidden');
+        }
+
+        function paymentPaidDone() {
+            appendMsg('user', "I have paid");
+            setTimeout(() => {
+                appendMsg('bot', "Excellent. Enter your **12-digit UPI Transaction ID**:");
+                bookingStep = 20; botInputArea.classList.remove('hidden'); botInput.focus();
+            }, 600);
+        }
+
+        async function saveAndConfirm(txt) {
+            appendMsg('bot', "Syncing clinical data...");
+            userData.message = `Visit: ${userData.visitType} | Date: ${userData.date} | Time: ${userData.time || 'N/A'} | Address: ${userData.address || 'N/A'} | Problem: ${userData.condition}`;
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(userData) });
+                const waSlip = window.encodeURIComponent(`*PRISM APPOINTMENT SUMMARY*%0A*Patient:* ${userData.name}%0A*Type:* ${userData.visitType}%0A*Date:* ${userData.date}%0A*Time:* ${userData.time || 'N/A'}%0A*TXN ID:* ${userData.paymentProof}`);
+                appendMsg('bot', txt);
+                const waDiv = document.createElement('div');
+                waDiv.innerHTML = `<a href="https://wa.me/919708059081?text=${waSlip}" target="_blank" class="mt-2 bg-green-600 text-white p-4 rounded-2xl text-center text-[10px] font-black uppercase block shadow-lg">📲 Get WhatsApp Confirmation</a>`;
+                chatContent.appendChild(waDiv);
+            } catch (e) { appendMsg('bot', "Details recorded successfully."); }
+            bookingStep = 0; botInputArea.classList.add('hidden'); setTimeout(showMainMenu, 5000);
+        }
+
+        document.getElementById('send-btn').onclick = processBotInput;
+        botInput.onkeypress = (e) => { if (e.key === 'Enter') processBotInput(); };
+
+        // 3. REVEAL & SLIDER (Rest untouched)
+        window.onscroll = () => { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active'); }); };
+        window.dispatchEvent(new Event('scroll'));
+
+        // Inquiry Form (Untouched)
+        const homeContactForm = document.getElementById('homeContactForm');
+        if (homeContactForm) {
+            homeContactForm.onsubmit = async (e) => {
+                e.preventDefault();
+                const btn = homeContactForm.querySelector('button');
+                btn.innerText = "Sending...";
+                const formData = { source: "Inquiry Form", name: document.getElementById('fc-name').value, phone: document.getElementById('fc-phone').value, message: document.getElementById('fc-message').value, location: 'Website Lead', condition: 'N/A', paymentProof: 'Inquiry Only' };
+                try {
+                    await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(formData) });
+                    alert('Sent Successfully!'); homeContactForm.reset();
+                } catch (error) { alert('Details recorded.'); }
+                btn.innerText = "Submit Inquiry";
+            };
+        }
+
+        // Slider (Untouched)
+        const track = document.getElementById('testimonial-track');
+        let currentSlide = 0;
+        const totalTestimonials = 5;
+        function updateSlider() {
+            if (!track) return;
+            const isMobile = window.innerWidth < 768;
+            const cardsVisible = isMobile ? 1 : 3;
+            const maxIndex = totalTestimonials - cardsVisible;
+            currentSlide++;
+            if (currentSlide > maxIndex) { currentSlide = 0; }
+            const moveAmount = isMobile ? (currentSlide * 100) : (currentSlide * 33.333);
+            track.style.transform = `translateX(-${moveAmount}%)`;
+        }
+        setInterval(updateSlider, 4000);
+    </script>
+</body>
+
+</html>
