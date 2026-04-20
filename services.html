@@ -365,6 +365,7 @@
                 <img src="athlete.webp" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Athlete Performance India">
             </div>
         </div>
+        
         <!-- 07. Women’s Health -->
 <div id="women" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
     
@@ -397,9 +398,9 @@
     </div>
 
 </div>
-        <!-- 08. Advanced Dry Needling -->
+        <!-- 08. Advanced Dry Needling (NOW: Image Left, Text Right) -->
         <div id="dry" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
-            <div class="reveal">
+            <div class="reveal lg:order-2">
                 <span class="text-clinical-blue font-bold uppercase tracking-widest text-xs mb-4 block">08. Trigger Release</span>
                 <h2 class="text-4xl font-extrabold mb-8 uppercase italic leading-tight">Advanced Dry Needling</h2>
                 <p class="text-slate-500 mb-8 leading-relaxed">Precision treatment for myofascial trigger points and chronic muscle knots.</p>
@@ -417,13 +418,14 @@
                     <span class="btn-text">SEE MORE DETAILS</span> <i data-lucide="plus-circle" class="w-4 h-4 transition-transform group-hover:rotate-90"></i>
                 </button>
             </div>
-                <div class="reveal">
+            <div class="reveal lg:order-1">
                 <img src="Dryneedle.jpg" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Dry Needling India">
             </div>
         </div>
-        <!-- 09. Cupping Therapy -->
+
+        <!-- 09. Cupping Therapy (NOW: Text Left, Image Right) -->
         <div id="cup" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
-            <div class="reveal lg:order-2">
+            <div class="reveal lg:order-1">
                 <span class="text-clinical-blue font-bold uppercase tracking-widest text-xs mb-4 block">09. Myofascial Release</span>
                 <h2 class="text-4xl font-extrabold mb-8 uppercase italic leading-tight">Cupping Therapy</h2>
                 <p class="text-slate-500 mb-8 leading-relaxed">Medical-grade cupping for rapid muscle recovery and lymphatic drainage.</p>
@@ -441,14 +443,14 @@
                     <span class="btn-text">SEE MORE DETAILS</span> <i data-lucide="plus-circle" class="w-4 h-4 transition-transform group-hover:rotate-90"></i>
                 </button>
             </div>
-            <div class="reveal lg:order-1">
+            <div class="reveal lg:order-2">
                 <img src="cupping.png" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Cupping India">
             </div>
         </div>
 
-        <!-- 10. Kinesio Taping -->
+        <!-- 10. Kinesio Taping (NOW: Image Left, Text Right) -->
         <div id="tape" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
-            <div class="reveal">
+            <div class="reveal lg:order-2">
                 <span class="text-clinical-blue font-bold uppercase tracking-widest text-xs mb-4 block">10. Dynamic Support</span>
                 <h2 class="text-4xl font-extrabold mb-8 uppercase italic leading-tight">Kinesio Taping</h2>
                 <p class="text-slate-500 mb-8 leading-relaxed">Supporting movement and stabilizing joints without limiting range of motion.</p>
@@ -466,36 +468,37 @@
                     <span class="btn-text">SEE MORE DETAILS</span> <i data-lucide="plus-circle" class="w-4 h-4 transition-transform group-hover:rotate-90"></i>
                 </button>
             </div>
-            <div class="reveal">
+            <div class="reveal lg:order-1">
                 <img src="kinesioTape.jpg" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Taping India">
             </div>
         </div>
-                <!-- 11. Advanced Modalities -->
-        <div id="cup" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
-            <div class="reveal lg:order-2">
-                <span class="text-clinical-blue font-bold uppercase tracking-widest text-xs mb-4 block">11. Advanced treatement Modalities</span>
+
+        <!-- 11. Advanced Modalities (NOW: Text Left, Image Right) -->
+        <div id="modalities" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
+            <div class="reveal lg:order-1">
+                <span class="text-clinical-blue font-bold uppercase tracking-widest text-xs mb-4 block">11. Advanced Treatment Modalities</span>
                 <h2 class="text-4xl font-extrabold mb-8 uppercase italic leading-tight">Advanced Modalities</h2>
-                <p class="text-slate-500 mb-8 leading-relaxed">Imported global standard treatment modalities to enhance recovery outcomes.
-.</p>
+                <p class="text-slate-500 mb-8 leading-relaxed">Imported global standard treatment modalities to enhance recovery outcomes.</p>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Spine Decompression</li>
                     <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Interferential Therapy</li>
                     <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Ultrasound therapy</li>
                     <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Tecar therapy</li>
                 </ul>
-                <div id="extra-cup" class="hidden mb-8 p-6 bg-blue-50/50 rounded-3xl border border-blue-100 shadow-inner animate-detail">
+                <!-- Changed ID to extra-modalities to avoid duplication with Cupping -->
+                <div id="extra-modalities" class="hidden mb-8 p-6 bg-blue-50/50 rounded-3xl border border-blue-100 shadow-inner animate-detail">
                     <p class="text-sm text-slate-700 leading-relaxed mb-4">We utilize advanced physiotherapy modalities to target pain, reduce inflammation, and accelerate tissue healing, ensuring faster and more effective recovery.</p>
                     <a href="appointment.html" class="inline-flex items-center gap-2 bg-clinical-blue text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-blue-800 transition shadow-lg">Book Appointment</a>
                 </div>
-                <button onclick="toggleService('extra-cup', this)" class="text-clinical-blue font-black uppercase tracking-widest text-xs flex items-center gap-2 group">
+                <button onclick="toggleService('extra-modalities', this)" class="text-clinical-blue font-black uppercase tracking-widest text-xs flex items-center gap-2 group">
                     <span class="btn-text">SEE MORE DETAILS</span> <i data-lucide="plus-circle" class="w-4 h-4 transition-transform group-hover:rotate-90"></i>
                 </button>
             </div>
-            <div class="reveal lg:order-1">
-                <img src="electro.jpg" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Cupping India">
+            <div class="reveal lg:order-2">
+                <img src="electro.jpg" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Advanced Modalities">
             </div>
         </div>
-</section>
+        
 <!-- Advanced Modalities Section -->
 <section id="modalities" class="py-24 bg-slate-900 text-white rounded-[4rem] mx-4 mb-32 scroll-mt-24">
     <div class="max-w-7xl mx-auto px-6 text-center">
