@@ -734,7 +734,7 @@
     // Initialize Icons
     lucide.createIcons();
 
-    // 1. Service Section Toggle Expansion
+    // 1. Service Section Toggle Expansion (Untouched)
     function toggleService(id, btn) {
         const element = document.getElementById(id);
         const isHidden = element.classList.contains('hidden');
@@ -754,7 +754,7 @@
         lucide.createIcons();
     }
 
-    // 2. Advanced Modalities Modal Logic
+    // 2. Advanced Modalities Modal Logic (Untouched)
     const modalData = {
         'dry-needling': { title: 'Advanced Dry Needling', text: 'Precision clinical intervention using monofilament needles to induce a Local Twitch Response (LTR), resetting muscle spindles for immediate chronic pain relief.', icon: 'zap' },
         'iastm': { title: 'IASTM Excellence', text: 'Instrument Assisted Soft Tissue Mobilization using specialized tools to detect and treat fascial restrictions and scar tissue efficiently.', icon: 'database' },
@@ -778,7 +778,7 @@
         document.body.style.overflow = '';
     }
 
-    // 3. Navigation & Mobile Menu
+    // 3. Navigation & Mobile Menu (Untouched)
     const menuBtn = document.getElementById('menu-btn');
     const closeMenu = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -869,12 +869,12 @@
         }
         else if(type === 'help') { appendMsg('bot', "Please type your query:"); bookingStep = 50; botInputArea.classList.remove('hidden'); botInput.focus(); }
         else if(type === 'book') {
-            appendMsg('bot', "Would you like to book a **Clinic Visit** or a **Home Visit**?");
-            const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex gap-2 mt-2";
+            appendMsg('bot', "Would you like to book a **Clinic Visit**, **Home Visit**, or **Online Consultation**?");
+            const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex flex-col gap-2 mt-2";
             div.innerHTML = `
-                <button onclick="startBooking('Clinic')" class="bg-clinical-blue text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏥 Clinic</button>
-                <button onclick="startBooking('Home')" class="bg-slate-800 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏠 Home</button>
-                <button onclick="startBooking('Online')" class="bg-purple-600 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">💻 Online</button>
+                <button onclick="startBooking('Clinic')" class="bg-clinical-blue text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏥 Clinic Visit</button>
+                <button onclick="startBooking('Home')" class="bg-slate-800 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏠 Home Visit</button>
+                <button onclick="startBooking('Online')" class="bg-purple-600 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">💻 Online Consultation</button>
             `;
             chatContent.appendChild(div);
         }
@@ -895,7 +895,7 @@
     function startBooking(type) {
         if(document.getElementById('bot-options')) document.getElementById('bot-options').remove();
         userData.visitType = type;
-        appendMsg('user', `I want a ${type} Visit`);
+        appendMsg('user', `I want an ${type} Session`);
         appendMsg('bot', "What is the **Patient's Full Name**?");
         bookingStep = 1; botInputArea.classList.remove('hidden'); botInput.focus();
     }
@@ -914,6 +914,8 @@
             case 2: userData.phone = val; 
                 if(userData.visitType === 'Clinic') {
                     appendMsg('bot', "Preferred Location? (**Begusarai** or **Patna**)"); bookingStep = 3;
+                } else if(userData.visitType === 'Online') {
+                    appendMsg('bot', "Requested **Date** for Online Consultation?"); bookingStep = 4;
                 } else {
                     appendMsg('bot', "Please provide your **Full Home Address**:"); bookingStep = 10;
                 } break;
@@ -957,17 +959,25 @@
         userData.message = `Visit: ${userData.visitType} | Date: ${userData.date} | Time: ${userData.time || 'N/A'} | Address: ${userData.address || 'N/A'} | Problem: ${userData.condition}`;
         try {
             await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(userData) });
-                            const waSlip = window.encodeURIComponent(
-                    `*PRISM APPOINTMENT SUMMARY*\n` +
-                    `*Name:* ${userData.name}\n` +
-                    `*Type:* ${userData.visitType}\n` +
-                    `*Number:* ${userData.phone}\n` +
-                    `*Date:* ${userData.date}\n` +
-                    `*Location:* ${finalLoc}\n` +
-                    `*Time:* ${userData.time || 'N/A'}\n` +
-                    `*Problem:* ${userData.condition}\n` +
-                    `*TXN ID:* ${userData.paymentProof}`
-                );
+            
+            // Define final location based on visit type
+            let finalLoc = 'Clinic';
+            if(userData.visitType === 'Home') finalLoc = 'Home Visit';
+            else if(userData.visitType === 'Online') finalLoc = 'Online Consultation';
+            else finalLoc = userData.location || 'Clinic';
+
+            const waSlip = window.encodeURIComponent(
+                `*PRISM APPOINTMENT SUMMARY*\n` +
+                `*Name:* ${userData.name}\n` +
+                `*Type:* ${userData.visitType}\n` +
+                `*Number:* ${userData.phone}\n` +
+                `*Date:* ${userData.date}\n` +
+                `*Location:* ${finalLoc}\n` +
+                `*Time:* ${userData.time || 'N/A'}\n` +
+                `*Problem:* ${userData.condition}\n` +
+                `*TXN ID:* ${userData.paymentProof}`
+            );
+            
             appendMsg('bot', successText);
             const waDiv = document.createElement('div');
             waDiv.innerHTML = `<a href="https://wa.me/919708059081?text=${waSlip}" target="_blank" class="mt-2 bg-green-600 text-white p-4 rounded-2xl text-center text-[10px] font-black uppercase block shadow-lg">📲 Get WhatsApp Confirmation</a>`;
@@ -980,7 +990,7 @@
     document.getElementById('send-btn').onclick = processBotInput;
     botInput.onkeypress = (e) => { if(e.key === 'Enter') processBotInput(); };
 
-    // 5. Scroll Reveal
+    // 5. Scroll Reveal (Untouched)
     window.onscroll = () => { 
         document.querySelectorAll('.reveal').forEach(el => { 
             if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active'); 
@@ -988,7 +998,7 @@
     };
     window.dispatchEvent(new Event('scroll'));
 
-    // 6. Form Submission Logic
+    // 6. Form Submission Logic (Untouched)
     const homeForm = document.getElementById('homeContactForm');
     if(homeForm) {
         homeForm.onsubmit = async (e) => {
