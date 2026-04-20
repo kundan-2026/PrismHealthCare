@@ -34,6 +34,16 @@
 
         #mobile-menu { transition: 0.4s ease; transform: translateX(100%); }
         #mobile-menu.open { transform: translateX(0); }
+            html {
+        scroll-behavior: smooth;
+    }
+
+    /* This ensures the scroll doesn't stop exactly at the top, 
+       giving some breathing room (matching the scroll-mt-20 class) */
+    #detailed-services {
+        scroll-margin-top: 5rem; 
+    }
+<
     </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden">
@@ -113,17 +123,100 @@
         </div>
     </div>
 
-    <!-- Services Hero -->
-    <section class="pt-32 sm:pt-48 pb-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-6 uppercase italic leading-tight">
-                Our <span class="clinical-blue">Clinical</span> Specializations.
-            </h1>
-        </div>
-    </section>
+<!-- Services Hero -->
+<section class="pt-32 sm:pt-48 pb-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter mb-6 uppercase italic leading-tight">
+            Our <span class="clinical-blue">&nbsp;Clinical</span> &nbsp;Specializations.
+        </h1>
+    </div>
+</section>
 
-<!-- Detailed Service Section - 10 Specializations -->
-<section class="py-24 bg-white">
+<!-- EYE-CATCHY BRIDGE SECTION -->
+<section class="bg-slate-50 pb-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <!-- Main Feature Card -->
+        <div class="bg-white rounded-[2rem] shadow-2xl shadow-blue-900/5 border border-slate-200 overflow-hidden">
+            <div class="grid lg:grid-cols-12 items-stretch">
+                
+                <!-- Left Side: The List -->
+                <div class="lg:col-span-7 p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-slate-100">
+                    <h3 class="text-xs uppercase tracking-widest font-bold text-blue-600 mb-6 flex items-center">
+                        <span class="w-8 h-px bg-blue-600 mr-3"></span> Our Scope of Treatment
+                    </h3>
+                    <p class="text-2xl md:text-3xl font-bold text-slate-900 leading-tight mb-8">
+                        The <span class="&nbsp; clinical-blue italic">TEAM</span> &nbsp; treats &nbsp; all &nbsp; conditions, &nbsp; including &nbsp; but &nbsp; not &nbsp; limited &nbsp; to:
+                    </p>
+                    
+                    <!-- Specialty Tags -->
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-semibold text-sm hover:bg-clinical-blue hover:text-white transition-colors cursor-default">Orthopedic Injuries</span>
+                        <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-semibold text-sm hover:bg-clinical-blue hover:text-white transition-colors cursor-default">Professional Athletes</span>
+                        <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-semibold text-sm hover:bg-clinical-blue hover:text-white transition-colors cursor-default">Geriatrics</span>
+                        <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-semibold text-sm hover:bg-clinical-blue hover:text-white transition-colors cursor-default">Post-Op Recovery</span>
+                        <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-semibold text-sm hover:bg-clinical-blue hover:text-white transition-colors cursor-default">Overall Well Being</span>
+                        <span class="px-5 py-2 bg-slate-100 rounded-full text-slate-700 font-semibold text-sm hover:bg-clinical-blue hover:text-white transition-colors cursor-default">Neurological Rehabilitation</span>
+                    </div>
+
+                    <!-- Unique Selling Point -->
+                    <div class="mt-10 p-6 bg-blue-50 rounded-2xl border-l-4 border-blue-600">
+                        <p class="text-blue-900 font-medium italic">
+                            "Utilizing &nbsp; advanced &nbsp; clinical &nbsp; interventions <span class="font-bold underline decoration-2"> &nbsp; NOT found</span> &nbsp; at &nbsp; any &nbsp; standard &nbsp; outpatient &nbsp; physical &nbsp; therapy &nbsp; clinics."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Side: The Mission -->
+                <div class="lg:col-span-5 bg-slate-900 p-8 md:p-12 flex flex-col justify-center relative">
+                    <!-- Subtle background decoration -->
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L10.017 3V21H14.017ZM4.017 21L4.017 18C4.017 16.8954 4.91243 16 6.017 16H9.017C9.56928 16 10.017 15.5523 10.017 15V9C10.017 8.44772 9.56928 8 9.017 8H6.017C4.91243 8 4.017 7.10457 4.017 6V3L0.017 3V21H4.017Z" /></svg>
+                    </div>
+
+                    <p class="text-xl md:text-2xl text-white font-light leading-relaxed relative z-10">
+                        Our  &nbsp; <span class="text-blue-400 font-bold">TEAM</span> &nbsp; of &nbsp; dedicated &nbsp specialists &nbsp is &nbsp committed &nbsp to &nbsp helping &nbsp our &nbsp patients &nbsp achieve 
+                        <span class="text-white font-black underline decoration-blue-500 decoration-4 underline-offset-8 uppercase tracking-widest">  &nbsp YOUR</span> &nbsp goals &nbsp
+                        and &nbsp improve 
+                        <span class="text-white font-black underline decoration-blue-500 decoration-4 underline-offset-8 uppercase tracking-widest"> &nbsp YOUR</span> quality of life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- THE SIGNATURE SLASH SEPARATOR -->
+<section class="relative py-24 overflow-hidden bg-white">
+    <!-- The Diagonal Background -->
+    <div class="absolute inset-0 bg-slate-50 -skew-y-3 origin-right translate-y-12 border-t border-slate-200"></div>
+
+    <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+        <div class="inline-block px-4 py-1 rounded-full bg-blue-100 text-clinical-blue text-xs font-bold uppercase tracking-widest mb-6">
+            Clinical Excellence
+        </div>
+        
+        <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-8 leading-[1.1]">
+            Experience &nbsp a &nbsp different &nbsp standard &nbsp of &nbsp <span class="clinical-blue italic"> Physical Therapy.</span>
+        </h2>
+
+        <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+            At &nbsp PRISM &nbsp Healthcare, &nbsp we &nbsp offer &nbsp a &nbsp wide &nbsp range &nbsp of &nbsp services &nbsp to &nbsp help &nbsp you &nbsp recove &nbspr from &nbsp injuries &nbsp and &nbsp improve &nbsp your &nbsp overall &nbsp physical &nbsp health. 
+        </p>
+
+        <!-- FUNCTIONAL SCROLL BUTTON -->
+        <div class="flex flex-col items-center">
+            <a href="#detailed-services" class="bg-white shadow-xl rounded-full px-8 py-4 border border-slate-100 flex items-center gap-4 group hover:scale-105 hover:border-clinical-blue transition-all duration-300 cursor-pointer">
+                <span class="text-slate-900 font-bold uppercase tracking-widest text-sm">Explore Our Services</span>
+                <div class="w-8 h-8 bg-clinical-blue text-white rounded-full flex items-center justify-center animate-bounce group-hover:bg-slate-900 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Detailed Service Section - Add the ID here -->
+<section id="detailed-services" class="py-24 bg-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4">
         
         <!-- 01. Neurological Rehabilitation -->
