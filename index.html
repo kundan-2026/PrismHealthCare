@@ -830,7 +830,6 @@
         chatToggle.onclick = openChat;
         document.getElementById('close-chat').onclick = () => chatWindow.classList.remove('open');
 
-        // BOLD TEXT LOGIC: Converts **text** to <strong>text</strong>
         function appendMsg(sender, text) {
             const div = document.createElement('div');
             div.className = `chat-bubble ${sender === 'bot' ? 'bot-msg' : 'user-msg'}`;
@@ -848,7 +847,7 @@
                 <button onclick="handleBotAction('book')" class="text-left text-xs bg-clinical-blue text-white p-3 rounded-xl font-bold uppercase shadow-md italic">📅 Diagnostic Booking</button>
                 <button onclick="handleBotAction('doctor')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold hover:border-clinical-blue transition">👨‍⚕️ Our Specialized Team</button>
                 <button onclick="handleBotAction('services')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">🏥 Service Details</button>
-                <button onclick="handleBotAction('browse')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">🏥 Specilized care </button>
+                <button onclick="handleBotAction('browse')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">🏥 Specialized care </button>
                 <button onclick="handleBotAction('loc')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">📍 Clinic Locations</button>
                 <button onclick="handleBotAction('help')" class="text-left text-xs bg-slate-800 text-white p-3 rounded-xl font-bold uppercase shadow-md">💬 Need Help / Message</button>
             `;
@@ -882,12 +881,12 @@
             }
             else if (type === 'help') { appendMsg('bot', "Please type your query or message below:"); bookingStep = 50; botInputArea.classList.remove('hidden'); botInput.focus(); }
             else if (type === 'book') {
-                appendMsg('bot', "Would you like to book a **Clinic Visit** or a **Home Visit**?");
-                const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex gap-2 mt-2";
+                appendMsg('bot', "Would you like to book a **Clinic Visit**, **Home Visit**, or an **Online Consultation**?");
+                const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex flex-col gap-2 mt-2";
                 div.innerHTML = `
-                    <button onclick="startBookingBranch('Clinic')" class="bg-clinical-blue text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏥 Clinic</button>
-                    <button onclick="startBookingBranch('Home')" class="bg-slate-800 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏠 Home</button>
-                    <button onclick="startBooking('Online')" class="bg-purple-600 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">💻 Online</button>
+                    <button onclick="startBookingBranch('Clinic')" class="bg-clinical-blue text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏥 Clinic Visit</button>
+                    <button onclick="startBookingBranch('Home')" class="bg-slate-800 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏠 Home Visit</button>
+                    <button onclick="startBookingBranch('Online')" class="bg-purple-600 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">💻 Online Consultation</button>
                 `;
                 chatContent.appendChild(div);
             }
@@ -908,7 +907,7 @@
         function startBookingBranch(type) {
             if (document.getElementById('bot-options')) document.getElementById('bot-options').remove();
             userData.visitType = type;
-            appendMsg('user', `I want to book a ${type} Visit`);
+            appendMsg('user', `I want to book a ${type}`);
             appendMsg('bot', "What is the **Patient's Full Name**?");
             bookingStep = 1; botInputArea.classList.remove('hidden'); botInput.focus();
         }
@@ -927,6 +926,8 @@
                 case 2: userData.phone = val;
                     if (userData.visitType === 'Clinic') {
                         appendMsg('bot', "Which location? (**Begusarai** or **Patna**)"); bookingStep = 3;
+                    } else if (userData.visitType === 'Online') {
+                        appendMsg('bot', "Requested **Date** for Online Session? (e.g. 25th Dec)"); bookingStep = 4;
                     } else {
                         appendMsg('bot', "Provide your **Full Home Address**:"); bookingStep = 10;
                     } break;
@@ -970,7 +971,10 @@
             userData.message = `Visit: ${userData.visitType} | Date: ${userData.date} | Time: ${userData.time || 'N/A'} | Address: ${userData.address || 'N/A'} | Problem: ${userData.condition}`;
             try {
                 await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(userData) });
-                                const waSlip = window.encodeURIComponent(
+                
+                let finalLoc = userData.visitType === 'Home' ? 'Home Visit' : (userData.visitType === 'Online' ? 'Online Consultation' : (userData.location || 'Clinic'));
+                
+                const waSlip = window.encodeURIComponent(
                     `*PRISM APPOINTMENT SUMMARY*\n` +
                     `*Name:* ${userData.name}\n` +
                     `*Type:* ${userData.visitType}\n` +
@@ -981,6 +985,7 @@
                     `*Problem:* ${userData.condition}\n` +
                     `*TXN ID:* ${userData.paymentProof}`
                 );
+                
                 appendMsg('bot', txt);
                 const waDiv = document.createElement('div');
                 waDiv.innerHTML = `<a href="https://wa.me/919708059081?text=${waSlip}" target="_blank" class="mt-2 bg-green-600 text-white p-4 rounded-2xl text-center text-[10px] font-black uppercase block shadow-lg">📲 Get WhatsApp Confirmation</a>`;
