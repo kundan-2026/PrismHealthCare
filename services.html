@@ -366,29 +366,37 @@
             </div>
         </div>
         <!-- 07. Women’s Health -->
-        <div id="women" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
-            <div class="reveal lg:order-2">
-                <span class="text-clinical-blue font-bold uppercase tracking-widest text-xs mb-4 block">07. Specialized Wellness</span>
-                <h2 class="text-4xl font-extrabold mb-8 uppercase italic leading-tight">Women’s Health</h2>
-                <p class="text-slate-500 mb-8 leading-relaxed">Comprehensive care for postnatal recovery and pelvic floor health in a private setting.</p>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                    <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Pelvic Strength</li>
-                    <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Post-Natal Rehab</li>
-                    <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Diastasis Recti</li>
-                    <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Core Restore</li>
-                </ul>
-                <div id="extra-women" class="hidden mb-8 p-6 bg-blue-50/50 rounded-3xl border border-blue-100 shadow-inner animate-detail">
-                    <p class="text-sm text-slate-700 leading-relaxed mb-4">We address postnatal abdominal separation and pelvic girdle pain through <strong>Evidence-Based Core Restoration</strong> programs tailored for Indian mothers.</p>
-                    <a href="appointment.html" class="inline-flex items-center gap-2 bg-clinical-blue text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-blue-800 transition shadow-lg">Book Appointment</a>
-                </div>
-                <button onclick="toggleService('extra-women', this)" class="text-clinical-blue font-black uppercase tracking-widest text-xs flex items-center gap-2 group">
-                    <span class="btn-text">SEE MORE DETAILS</span> <i data-lucide="plus-circle" class="w-4 h-4 transition-transform group-hover:rotate-90"></i>
-                </button>
-            </div>
-            <div class="reveal lg:order-1">
-                <img src="women.webp" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Women Health India">
-            </div>
+<div id="women" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
+    
+    <!-- Text Column (Now lg:order-1 to appear on the Left) -->
+    <div class="reveal lg:order-1">
+        <span class="text-clinical-blue font-bold uppercase tracking-widest text-xs mb-4 block">07. Specialized Wellness</span>
+        <h2 class="text-4xl font-extrabold mb-8 uppercase italic leading-tight">Women’s Health</h2>
+        <p class="text-slate-500 mb-8 leading-relaxed">Comprehensive care for postnatal recovery and pelvic floor health in a private setting.</p>
+        
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Pelvic Strength</li>
+            <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Post-Natal Rehab</li>
+            <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Diastasis Recti</li>
+            <li class="flex items-center gap-2 font-semibold"><i data-lucide="check-circle" class="text-clinical-blue"></i> Core Restore</li>
+        </ul>
+
+        <div id="extra-women" class="hidden mb-8 p-6 bg-blue-50/50 rounded-3xl border border-blue-100 shadow-inner animate-detail">
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">We address postnatal abdominal separation and pelvic girdle pain through <strong>Evidence-Based Core Restoration</strong> programs tailored for Indian mothers.</p>
+            <a href="appointment.html" class="inline-flex items-center gap-2 bg-clinical-blue text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-[10px] hover:bg-blue-800 transition shadow-lg">Book Appointment</a>
         </div>
+
+        <button onclick="toggleService('extra-women', this)" class="text-clinical-blue font-black uppercase tracking-widest text-xs flex items-center gap-2 group">
+            <span class="btn-text">SEE MORE DETAILS</span> <i data-lucide="plus-circle" class="w-4 h-4 transition-transform group-hover:rotate-90"></i>
+        </button>
+    </div>
+
+    <!-- Image Column (Now lg:order-2 to appear on the Right) -->
+    <div class="reveal lg:order-2">
+        <img src="women.webp" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Women Health India">
+    </div>
+
+</div>
         <!-- 08. Advanced Dry Needling -->
         <div id="dry" class="grid lg:grid-cols-2 gap-12 items-center mb-32 scroll-mt-24">
             <div class="reveal">
