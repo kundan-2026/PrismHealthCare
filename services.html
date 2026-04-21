@@ -29,7 +29,7 @@
 
         /* FAQ Styling */
         .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 200px; }
+        .faq-item.active .faq-content { max-height: 500px; }
         .faq-item.active i { transform: rotate(180deg); }
 
         #mobile-menu { transition: 0.4s ease; transform: translateX(100%); }
@@ -43,7 +43,7 @@
     #detailed-services {
         scroll-margin-top: 5rem; 
     }
-<
+
     </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden">
@@ -312,7 +312,7 @@
                 </button>
             </div>
             <div class="reveal lg:order-1">
-                <img src="https://images.unsplash.com/photo-1616149162464-9040081cc93b?auto=format&fit=crop&q=80&w=800&h=600" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Sports Rehab India">
+                <img src="sports.png" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Sports Rehab India">
             </div>
         </div>
 
@@ -498,6 +498,9 @@
                 <img src="electro.jpg" class="rounded-[2.5rem] shadow-2xl w-full aspect-[4/3] object-cover border-8 border-slate-50" alt="Advanced Modalities">
             </div>
         </div>
+        </div>
+    </div>
+</section>
         
 <!-- Advanced Modalities Section -->
 <section id="modalities" class="py-24 bg-slate-900 text-white rounded-[4rem] mx-4 mb-32 scroll-mt-24">
@@ -561,6 +564,7 @@
         </div>
     </div>
 </div>
+</section>
 
 <!-- Expanded FAQ Section -->
 <section class="py-24 bg-white max-w-4xl mx-auto px-4">
@@ -834,6 +838,27 @@
 <script>
     // Initialize Icons
     lucide.createIcons();
+
+    // FAQ Toggle Function (FIXED)
+    function toggleFaq(btn) {
+        const item = btn.parentElement;
+        const content = item.querySelector('.faq-content');
+        
+        // Toggle the 'active' class to trigger rotation and height in CSS
+        const isActive = item.classList.toggle('active');
+        
+        // Handle 'hidden' visibility
+        if (isActive) {
+            content.classList.remove('hidden');
+        } else {
+            // Wait for transition to finish before hiding display
+            setTimeout(() => {
+                if (!item.classList.contains('active')) {
+                    content.classList.add('hidden');
+                }
+            }, 300);
+        }
+    }
 
     // 1. Service Section Toggle Expansion (Untouched)
     function toggleService(id, btn) {
