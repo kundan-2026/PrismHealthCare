@@ -4,132 +4,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment | Prism Healthcare - Dr. Ravi Kumar</title>
-    <link rel="icon" type="image/jpg" href="Logo3.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+    <title>Book Appointment | Best Physiotherapy Center in Patna | Prism Healthcare</title>
+<meta name="description" content="Schedule your session at Prism Healthcare, the best physiotherapy center in Patna (Gola Road). Expert neuro physiotherapy, orthopaedic rehab, and pain management by Dr. Ravi Kumar. Book your clinic or home visit today.">
+<meta name="keywords" content="best physiotherapy center in Patna, physiotherapy near me Patna, neuro physiotherapy Patna, orthopaedic physiotherapy Patna, pain management clinic Patna, back pain treatment Patna, stroke rehabilitation Patna, physical therapy appointment Patna">
+<link rel="canonical" href="https://prismhealthcare.in/appointment.html">
 
-        .clinical-blue {
-            color: #0056b3;
-        }
+<!-- Geo Location Meta Tags -->
+<meta name="geo.region" content="IN-BR" />
+<meta name="geo.placename" content="Patna" />
+<meta name="geo.position" content="25.612674;85.064562" />
+<meta name="ICBM" content="25.612674, 85.064562" />
 
-        .bg-clinical-blue {
-            background-color: #0056b3;
-        }
+<!-- Open Graph / Social Media (WhatsApp/Social Sharing) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book Appointment | Prism Healthcare Patna">
+<meta property="og:description" content="Advanced Neurological & Orthopaedic Rehabilitation at Gola Road, Patna. Book your consultation with Dr. Ravi Kumar (MPT Neuro).">
+<meta property="og:url" content="https://prismhealthcare.in/appointment.html">
+<meta property="og:image" content="Prism logo.jpeg">
+<meta property="og:site_name" content="Prism Healthcare">
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PhysiotherapyClinic",
+  "name": "Prism Healthcare",
+  "image": "https://prismhealthcare.in/Prism%20logo.jpeg",
+  "@id": "https://prismhealthcare.in/appointment.html",
+  "url": "https://prismhealthcare.in/appointment.html",
+  "telephone": "+919708059081",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Orthocare Hospital, Gola Road",
+    "addressLocality": "Patna",
+    "addressRegion": "Bihar",
+    "postalCode": "801503",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.612674,
+    "longitude": 85.064562
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Patna"
+  },
+  "medicalSpecialty": [
+    "Neurological Rehabilitation",
+    "Orthopaedic Physiotherapy",
+    "Pain Management",
+    "Stroke Rehabilitation",
+    "Back Pain Treatment"
+  ],
+  "availableService": [
+    {
+      "@type": "Service",
+      "name": "Clinic Visit Consultation"
+    },
+    {
+      "@type": "Service",
+      "name": "Home Visit Physiotherapy"
+    },
+    {
+      "@type": "Service",
+      "name": "Online Physiotherapy Consultation"
+    }
+  ]
+}
+</script>
 
-        .reveal.active {
-            opacity: 1;
+<link rel="icon" type="image/jpg" href="Logo3.jpg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .clinical-blue {
+        color: #0056b3;
+    }
+
+    .bg-clinical-blue {
+        background-color: #0056b3;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .whatsapp-float {
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
             transform: translateY(0);
         }
 
-        .whatsapp-float {
-            animation: bounce 2s infinite;
+        40% {
+            transform: translateY(-10px);
         }
 
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-10px);
-            }
-
-            60% {
-                transform: translateY(-5px);
-            }
+        60% {
+            transform: translateY(-5px);
         }
+    }
 
-        #chat-window {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: translateY(20px) scale(0.9);
-            opacity: 0;
-            pointer-events: none;
-        }
+    #chat-window {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateY(20px) scale(0.9);
+        opacity: 0;
+        pointer-events: none;
+    }
 
-        #chat-window.open {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
+    #chat-window.open {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-        .chat-bubble {
-            max-width: 85%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
+    .chat-bubble {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
 
-        .bot-msg {
-            background: #f1f5f9;
-            color: #1e293b;
-            border-bottom-left-radius: 4px;
-        }
+    .bot-msg {
+        background: #f1f5f9;
+        color: #1e293b;
+        border-bottom-left-radius: 4px;
+    }
 
-        .user-msg {
-            background: #0056b3;
-            color: white;
-            border-bottom-right-radius: 4px;
-            align-self: flex-end;
-        }
+    .user-msg {
+        background: #0056b3;
+        color: white;
+        border-bottom-right-radius: 4px;
+        align-self: flex-end;
+    }
 
-        .form-input {
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
+    .form-input {
+        transition: all 0.3s ease;
+        border: 1px solid #e2e8f0;
+    }
 
-        .form-input:focus {
-            border-color: #0056b3;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
-        }
+    .form-input:focus {
+        border-color: #0056b3;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
+    }
 
-        #mobile-nav-overlay {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(100%);
-        }
+    #mobile-nav-overlay {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(100%);
+    }
 
-        #mobile-nav-overlay.open {
-            transform: translateX(0);
-        }
+    #mobile-nav-overlay.open {
+        transform: translateX(0);
+    }
 
-        .pay-proof-btn {
-            background: #059669;
-            color: white;
-            font-weight: 800;
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            margin-top: 8px;
-            width: 100%;
-            border: none;
-        }
+    .pay-proof-btn {
+        background: #059669;
+        color: white;
+        font-weight: 800;
+        padding: 12px;
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 8px;
+        width: 100%;
+        border: none;
+    }
 
-        #home-visit-details {
-            display: none;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-    </style>
+    #home-visit-details {
+        display: none;
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+</style>
 </head>
 
 <body class="bg-slate-50 text-slate-900 overflow-x-hidden">
