@@ -715,7 +715,7 @@
                                 </div>
                             </div>
 
-                            <!-- Contact Links -->
+                            <!-- Contact Links & WhatsApp QR -->
                             <div class="pt-6 border-t border-white/10 space-y-4">
                                 <a href="tel:+919708059081" class="flex items-center gap-3 group">
                                     <i data-lucide="phone"
@@ -727,6 +727,15 @@
                                         class="w-5 h-5 text-white group-hover:scale-110 transition-transform"></i>
                                     <span class="font-bold text-base md:text-lg">info@prism.com</span>
                                 </a>
+                                
+                                <div class="mt-4 flex items-center gap-4 bg-white/5 p-3 rounded-2xl border border-white/10">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/919708059081" 
+                                         alt="WhatsApp QR" class="w-16 h-16 rounded-lg border-2 border-white/20">
+                                    <div>
+                                        <p class="text-[10px] font-bold uppercase tracking-wider text-blue-100">Scan to Chat</p>
+                                        <p class="text-[9px] opacity-70">Direct WhatsApp Support</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1020,9 +1029,14 @@
             payDiv.className = "bot-msg chat-bubble mb-4";
             payDiv.innerHTML = `
                 <p class="mb-3">To finalize slot, pay the **₹500** booking fee.</p>
-                <p class="mb-3">UPI: <strong>prism.healthcare@upi</strong></p>
+                <p class="mb-3">UPI: <strong>dr.raviphysio01@oksbi</strong></p>
+                <div class="bg-white p-3 rounded-xl border border-slate-200 mb-3 flex flex-col items-center">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=dr.raviphysio01@oksbi%26pn=Prism%20Healthcare%26am=500%26cu=INR" 
+                         alt="UPI QR Code" class="w-32 h-32">
+                    <p class="text-[9px] text-slate-400 mt-2 uppercase font-bold">Scan to Pay ₹500</p>
+                </div>
                 <div class="flex flex-col gap-2">
-                    <a href="upi://pay?pa=prism.healthcare@upi&pn=Prism%20Healthcare&am=500&cu=INR" class="bg-green-600 text-white p-3 rounded-xl text-center text-[10px] font-black uppercase">🚀 Pay via UPI App</a>
+                    <a href="upi://pay?pa=dr.raviphysio01@oksbi&pn=Prism%20Healthcare&am=500&cu=INR" class="bg-green-600 text-white p-3 rounded-xl text-center text-[10px] font-black uppercase">🚀 Pay via UPI App</a>
                     <button onclick="paymentPaidDone()" class="bg-clinical-blue text-white p-3 rounded-xl text-[10px] font-black uppercase">✅ I Have Paid</button>
                 </div>
             `;
@@ -1107,4 +1121,5 @@
         setInterval(updateSlider, 4000);
     </script>
 </body>
+
 </html>
