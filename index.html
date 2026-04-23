@@ -4,116 +4,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prism Healthcare | Dr. Ravi Kumar - Lead Neuro-Rehab Specialist</title>
-    <link rel="icon" type="image/jpg" href="Logo3.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+    <title>Best Physiotherapy Center in Patna | Neuro & Ortho Rehab | Prism Healthcare</title>
+<meta name="description" content="Prism Healthcare provides the best physiotherapy in Patna (Gola Road). Specializing in neuro physiotherapy, stroke rehabilitation, orthopaedic care, and pain management by Dr. Ravi Kumar. Book your appointment today!">
+<meta name="keywords" content="best physiotherapy center in Patna, physiotherapy near me Patna, neuro physiotherapy Patna, orthopaedic physiotherapy Patna, pain management clinic Patna, back pain treatment Patna, stroke rehabilitation Patna, Dr. Ravi Kumar physiotherapist Patna, Prism Healthcare Patna">
+<link rel="canonical" href="https://prismhealthcare.in/">
 
-        .clinical-blue {
-            color: #0056b3;
-        }
+<!-- Geo Location Tags -->
+<meta name="geo.region" content="IN-BR" />
+<meta name="geo.placename" content="Patna" />
+<meta name="geo.position" content="25.612674;85.064562" />
+<meta name="ICBM" content="25.612674, 85.064562" />
 
-        .bg-clinical-blue {
-            background-color: #0056b3;
-        }
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://prismhealthcare.in/">
+<meta property="og:title" content="Best Physiotherapy Center in Patna | Prism Healthcare">
+<meta property="og:description" content="Advanced Neurological & Orthopaedic Rehabilitation in Gola Road, Patna. Transforming pain into power with expert clinical care.">
+<meta property="og:image" content="Prism logo.jpeg">
+<meta property="og:site_name" content="Prism Healthcare">
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PhysiotherapyClinic",
+  "name": "Prism Healthcare",
+  "image": "https://prismhealthcare.in/Prism%20logo.jpeg",
+  "@id": "https://prismhealthcare.in/",
+  "url": "https://prismhealthcare.in/",
+  "telephone": "+919708059081",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Orthocare Hospital, Gola Road",
+    "addressLocality": "Patna",
+    "addressRegion": "Bihar",
+    "postalCode": "801503",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.612674,
+    "longitude": 85.064562
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "sameAs": [
+    "https://instagram.com/prismphysiotherapy",
+    "https://www.linkedin.com/company/prismphysiotherapy/"
+  ],
+  "medicalSpecialty": [
+    "Neurological Rehabilitation",
+    "Orthopaedic Physiotherapy",
+    "Pain Management",
+    "Pediatric Physiotherapy",
+    "Sports Injury"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Dr. Ravi Kumar"
+  },
+  "areaServed": "Patna, Bihar"
+}
+</script>
 
-        .reveal.active {
-            opacity: 1;
+<link rel="icon" type="image/jpg" href="Logo3.jpg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .clinical-blue {
+        color: #0056b3;
+    }
+
+    .bg-clinical-blue {
+        background-color: #0056b3;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .whatsapp-float {
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
             transform: translateY(0);
         }
 
-        .whatsapp-float {
-            animation: bounce 2s infinite;
+        40% {
+            transform: translateY(-10px);
         }
 
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-10px);
-            }
-
-            60% {
-                transform: translateY(-5px);
-            }
+        60% {
+            transform: translateY(-5px);
         }
+    }
 
-        /* Chatbot Styles */
-        #chat-window {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: translateY(20px) scale(0.9);
-            opacity: 0;
-            pointer-events: none;
-        }
+    /* Chatbot Styles */
+    #chat-window {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateY(20px) scale(0.9);
+        opacity: 0;
+        pointer-events: none;
+    }
 
-        #chat-window.open {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
+    #chat-window.open {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-        .chat-bubble {
-            max-width: 85%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
+    .chat-bubble {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
 
-        .bot-msg {
-            background: #f1f5f9;
-            color: #1e293b;
-            border-bottom-left-radius: 4px;
-        }
+    .bot-msg {
+        background: #f1f5f9;
+        color: #1e293b;
+        border-bottom-left-radius: 4px;
+    }
 
-        .user-msg {
-            background: #0056b3;
-            color: white;
-            border-bottom-right-radius: 4px;
-            align-self: flex-end;
-        }
+    .user-msg {
+        background: #0056b3;
+        color: white;
+        border-bottom-right-radius: 4px;
+        align-self: flex-end;
+    }
 
-        .pay-proof-btn {
-            background: #059669;
-            color: white;
-            font-weight: 800;
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            margin-top: 8px;
-            width: 100%;
-        }
+    .pay-proof-btn {
+        background: #059669;
+        color: white;
+        font-weight: 800;
+        padding: 12px;
+        border-radius: 12px;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 8px;
+        width: 100%;
+    }
 
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(100%);
-        }
+    /* Mobile Menu */
+    #mobile-menu {
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(100%);
+    }
 
-        #mobile-menu.open {
-            transform: translateX(0);
-        }
-    </style>
+    #mobile-menu.open {
+        transform: translateX(0);
+    }
+</style>
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden">
@@ -1034,5 +1107,4 @@
         setInterval(updateSlider, 4000);
     </script>
 </body>
-
 </html>
