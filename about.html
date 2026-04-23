@@ -4,119 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Prism Healthcare - Neuro & Ortho Specialist</title>
-    <link rel="icon" type="image/jpg" href="Logo3.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+<title>About Dr. Ravi Kumar & Team | Best Physiotherapy Center in Patna | Prism Healthcare</title>
+<meta name="description" content="Meet Dr. Ravi Kumar and our expert team at Prism Healthcare, Gola Road, Patna. We are the leading clinic for neuro physiotherapy, stroke rehabilitation, and orthopaedic physiotherapy in Bihar. Transforming lives through evidence-based care.">
+<meta name="keywords" content="best physiotherapy center in Patna, physiotherapy near me Patna, neuro physiotherapy Patna, orthopaedic physiotherapy Patna, pain management clinic Patna, back pain treatment Patna, stroke rehabilitation Patna, Dr. Ravi Kumar physiotherapist, Prism Healthcare About">
+<link rel="canonical" href="https://prismhealthcare.in/about.html">
 
-        .clinical-blue {
-            color: #0056b3;
-        }
+<!-- Geo Location Tags -->
+<meta name="geo.region" content="IN-BR" />
+<meta name="geo.placename" content="Patna" />
+<meta name="geo.position" content="25.612674;85.064562" />
+<meta name="ICBM" content="25.612674, 85.064562" />
 
-        .bg-clinical-blue {
-            background-color: #0056b3;
-        }
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Meet the Experts | Best Physiotherapy Center in Patna | Prism Healthcare">
+<meta property="og:description" content="Led by Dr. Ravi Kumar (MPT Neuro), Prism Healthcare is Patna's premier center for Neurological and Orthopaedic excellence.">
+<meta property="og:url" content="https://prismhealthcare.in/about.html">
+<meta property="og:image" content="drRavi.jpeg">
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PhysiotherapyClinic",
+  "name": "Prism Healthcare",
+  "image": "https://prismhealthcare.in/drRavi.jpeg",
+  "@id": "https://prismhealthcare.in/about.html",
+  "url": "https://prismhealthcare.in/about.html",
+  "telephone": "+919708059081",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Orthocare Hospital, Gola Road",
+    "addressLocality": "Patna",
+    "addressRegion": "Bihar",
+    "postalCode": "801503",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.612674,
+    "longitude": 85.064562
+  },
+  "areaServed": "Patna, Bihar",
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Dr. Ravi Kumar",
+      "jobTitle": "Director & Lead Neuro-Rehab Specialist",
+      "description": "MPT (Neurology), specialist in advanced manual therapy and neurological conditions."
+    },
+    {
+      "@type": "Person",
+      "name": "Dr. Supriya",
+      "jobTitle": "Consultant Physiotherapist",
+      "description": "BPT, Specialist in Women Health & orthopedic rehabilitation."
+    },
+    {
+      "@type": "Person",
+      "name": "Dr. Puja",
+      "jobTitle": "Consultant Physiotherapist",
+      "description": "BPT, Specialist in Pediatric and Neurological Rehabilitation."
+    }
+  ],
+  "medicalSpecialty": [
+    "Neurological Rehabilitation",
+    "Orthopaedic Physiotherapy",
+    "Stroke Rehabilitation",
+    "Pediatric Physiotherapy",
+    "Women's Health"
+  ]
+}
+</script>
 
-        .reveal.active {
-            opacity: 1;
+<link rel="icon" type="image/jpg" href="Logo3.jpg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .clinical-blue {
+        color: #0056b3;
+    }
+
+    .bg-clinical-blue {
+        background-color: #0056b3;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero-gradient {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    /* Expert Image Uniformity */
+    .expert-frame {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 3rem;
+    }
+
+
+    /* Floating Buttons */
+    .whatsapp-float {
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
             transform: translateY(0);
         }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        40% {
+            transform: translateY(-10px);
         }
 
-        /* Expert Image Uniformity */
-        .expert-frame {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 3rem;
+        60% {
+            transform: translateY(-5px);
         }
+    }
 
+    /* Chatbot UI Styles */
+    #chat-window {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateY(20px) scale(0.9);
+        opacity: 0;
+        pointer-events: none;
+    }
 
-        /* Floating Buttons */
-        .whatsapp-float {
-            animation: bounce 2s infinite;
-        }
+    #chat-window.open {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        pointer-events: auto;
+    }
 
-        @keyframes bounce {
+    .chat-bubble {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
 
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
+    .bot-msg {
+        background: #f1f5f9;
+        color: #1e293b;
+        border-bottom-left-radius: 4px;
+    }
 
-            40% {
-                transform: translateY(-10px);
-            }
+    .user-msg {
+        background: #0056b3;
+        color: white;
+        border-bottom-right-radius: 4px;
+        align-self: flex-end;
+    }
 
-            60% {
-                transform: translateY(-5px);
-            }
-        }
+    /* Mobile Nav */
+    #mobile-nav-overlay {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(100%);
+    }
 
-        /* Chatbot UI Styles */
-        #chat-window {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: translateY(20px) scale(0.9);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        #chat-window.open {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .chat-bubble {
-            max-width: 85%;
-            padding: 12px 16px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        .bot-msg {
-            background: #f1f5f9;
-            color: #1e293b;
-            border-bottom-left-radius: 4px;
-        }
-
-        .user-msg {
-            background: #0056b3;
-            color: white;
-            border-bottom-right-radius: 4px;
-            align-self: flex-end;
-        }
-
-        /* Mobile Nav */
-        #mobile-nav-overlay {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(100%);
-        }
-
-        #mobile-nav-overlay.open {
-            transform: translateX(0);
-        }
-    </style>
+    #mobile-nav-overlay.open {
+        transform: translateX(0);
+    }
+</style>
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden">
