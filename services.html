@@ -3,46 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Prism Healthcare - Advanced Physiotherapy Techniques</title>
-    <link rel="icon" type="image/png" href="Logo3.jpg">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .clinical-blue { color: #0056b3; }
-        .bg-clinical-blue { background-color: #0056b3; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        /* Floating Buttons */
-        .whatsapp-float { animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
-        
-        /* Chatbot UI Styles */
-        #chat-window { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: translateY(20px) scale(0.9); opacity: 0; pointer-events: none; }
-        #chat-window.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
-        .chat-bubble { max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.5; margin-bottom: 10px; }
-        .bot-msg { background: #f1f5f9; color: #1e293b; border-bottom-left-radius: 4px; }
-        .user-msg { background: #0056b3; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
-        .pay-proof-btn { background: #059669; color: white; font-weight: 800; padding: 12px; border-radius: 12px; text-align: center; cursor: pointer; margin-top: 8px; width: 100%; }
+    <title>Physiotherapy Services in Patna | Neuro, Ortho & Stroke Rehab | Prism Healthcare</title>
+<meta name="description" content="Explore advanced physiotherapy services in Patna at Prism Healthcare (Gola Road). Specializing in neuro rehabilitation, stroke recovery, orthopaedic care, back pain treatment, and sports injury. Expert care by Dr. Ravi Kumar.">
+<meta name="keywords" content="best physiotherapy center in Patna, physiotherapy near me Patna, neuro physiotherapy Patna, orthopaedic physiotherapy Patna, pain management clinic Patna, back pain treatment Patna, stroke rehabilitation Patna, sports injury rehab Patna, pediatric physiotherapy Patna, Dr. Ravi Kumar Patna">
+<link rel="canonical" href="https://prismhealthcare.in/services.html">
 
-        /* FAQ Styling */
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 500px; }
-        .faq-item.active i { transform: rotate(180deg); }
+<!-- Geo Location Meta Tags -->
+<meta name="geo.region" content="IN-BR" />
+<meta name="geo.placename" content="Patna" />
+<meta name="geo.position" content="25.612674;85.064562" />
+<meta name="ICBM" content="25.612674, 85.064562" />
 
-        #mobile-menu { transition: 0.4s ease; transform: translateX(100%); }
-        #mobile-menu.open { transform: translateX(0); }
-            html {
-        scroll-behavior: smooth;
-    }
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Advanced Physiotherapy Services in Patna | Prism Healthcare">
+<meta property="og:description" content="Specialized Neuro, Orthopaedic & Pain Management at Gola Road, Patna. Evidence-based stroke recovery and back pain treatment.">
+<meta property="og:url" content="https://prismhealthcare.in/services.html">
+<meta property="og:image" content="Prism logo.jpeg">
+<meta property="og:site_name" content="Prism Healthcare">
 
-    /* This ensures the scroll doesn't stop exactly at the top, 
-       giving some breathing room (matching the scroll-mt-20 class) */
-    #detailed-services {
-        scroll-margin-top: 5rem; 
-    }
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PhysiotherapyClinic",
+  "name": "Prism Healthcare",
+  "url": "https://prismhealthcare.in/services.html",
+  "logo": "https://prismhealthcare.in/Prism%20logo.jpeg",
+  "image": "https://prismhealthcare.in/neuro.png",
+  "description": "Providing specialized Neurological Rehabilitation, Orthopaedic Therapy, and Pain Management services in Patna.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Orthocare Hospital, Gola Road",
+    "addressLocality": "Patna",
+    "addressRegion": "Bihar",
+    "postalCode": "801503",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.612674,
+    "longitude": 85.064562
+  },
+  "telephone": "+919708059081",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Physiotherapy Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Neurological Rehabilitation",
+          "description": "Specialized recovery for Stroke, Parkinson's, and Spinal Cord Injury."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Orthopaedic & Spine Care",
+          "description": "Advanced treatment for Slip Disc, Sciatica, and joint pain."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Pain Management",
+          "description": "Dry needling, Cupping therapy, and advanced modalities for pain relief."
+        }
+      }
+    ]
+  },
+  "areaServed": "Patna, Bihar"
+}
+</script>
+
+<link rel="icon" type="image/png" href="Logo3.jpg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .clinical-blue { color: #0056b3; }
+    .bg-clinical-blue { background-color: #0056b3; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    /* Floating Buttons */
+    .whatsapp-float { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+    
+    /* Chatbot UI Styles */
+    #chat-window { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: translateY(20px) scale(0.9); opacity: 0; pointer-events: none; }
+    #chat-window.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+    .chat-bubble { max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.5; margin-bottom: 10px; }
+    .bot-msg { background: #f1f5f9; color: #1e293b; border-bottom-left-radius: 4px; }
+    .user-msg { background: #0056b3; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
+    .pay-proof-btn { background: #059669; color: white; font-weight: 800; padding: 12px; border-radius: 12px; text-align: center; cursor: pointer; margin-top: 8px; width: 100%; }
+
+    /* FAQ Styling */
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    .faq-item.active .faq-content { max-height: 500px; }
+    .faq-item.active i { transform: rotate(180deg); }
+
+    #mobile-menu { transition: 0.4s ease; transform: translateX(100%); }
+    #mobile-menu.open { transform: translateX(0); }
+        html {
+    scroll-behavior: smooth;
+}
+
+/* This ensures the scroll doesn't stop exactly at the top, 
+   giving some breathing room (matching the scroll-mt-20 class) */
+#detailed-services {
+    scroll-margin-top: 5rem; 
+}
 
     </style>
 </head>
