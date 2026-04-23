@@ -76,6 +76,17 @@
     #mobile-nav-overlay.open {
         transform: translateX(0);
     }
+
+    /* Bot Toggle Animations */
+    .whatsapp-float { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+    /* Chatbot UI Styles */
+    #chat-window { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: translateY(20px) scale(0.9); opacity: 0; pointer-events: none; }
+    #chat-window.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+    .chat-bubble { max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 14px; line-height: 1.5; margin-bottom: 10px; }
+    .bot-msg { background: #f1f5f9; color: #1e293b; border-bottom-left-radius: 4px; }
+    .user-msg { background: #0056b3; color: white; border-bottom-right-radius: 4px; align-self: flex-end; }
 </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden">
@@ -84,7 +95,6 @@
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
             
-            <!-- Professional Branding: Logo + Text -->
             <a href="index.html" class="flex items-center group">
                 <div class="relative flex-shrink-0 mr-3">
                     <img src="Prism logo.jpeg" 
@@ -92,7 +102,6 @@
                          class="h-11 w-11 object-cover rounded-xl shadow-sm border border-slate-100 group-hover:scale-105 transition-transform duration-300">
                     <div class="absolute inset-0 bg-clinical-blue/10 rounded-xl blur-md -z-10"></div>
                 </div>
-
                 <div class="flex flex-col justify-center">
                     <span class="text-2xl font-black tracking-tighter text-gray-900 leading-none">P R I S M</span>
                     <div class="flex items-center">
@@ -101,7 +110,6 @@
                 </div>
             </a>
 
-            <!-- Desktop Menu -->
             <div class="hidden lg:flex space-x-6 items-center font-bold text-sm text-slate-600">
                 <a href="index.html" class="hover:text-clinical-blue transition">Home</a>
                 <a href="about.html" class="hover:text-clinical-blue transition">About</a>
@@ -112,7 +120,6 @@
                 </a>
             </div>
 
-            <!-- Mobile Navigation Toggle Button -->
             <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-700 focus:outline-none">
                 <i data-lucide="menu" class="w-8 h-8"></i>
             </button>
@@ -123,7 +130,6 @@
     <div id="mobile-nav-overlay" class="fixed inset-0 z-[100] bg-white lg:hidden flex flex-col p-8">
         <div class="flex justify-between items-center mb-12">
             <span class="font-black text-xl text-clinical-blue tracking-tighter">MENU</span>
-            <!-- FIXED: Added missing button tag and ID here -->
             <button id="mobile-menu-close">
                 <i data-lucide="x" class="w-10 h-10"></i>
             </button>
@@ -280,7 +286,6 @@
 <div class="max-w-7xl mx-auto px-6">
     <div class="grid lg:grid-cols-3 gap-12 mb-16">
         <div>
-            <!-- Wrap the image in a link -->
             <a href="about.html" class="inline-block transition-transform duration-300 hover:scale-110 active:scale-95">
                 <img src="PrismLogo.png" alt="Prism Logo" class="w-42 h-auto rounded-md">
             </a>
@@ -320,12 +325,22 @@
                             Unit</h5>
                         <p class="text-sm text-slate-400">MG Nagar, Kanti Factory Rd, Patna</p>
                     </div>
-                    <div class="flex items-center gap-2 text-white font-bold hover:scale-105 transition-transform">
+                    
+                    <div class="flex flex-col gap-4">
                         <a href="tel:+919708059081"
                             class="flex items-center gap-2 text-white font-bold hover:text-clinical-blue transition-colors">
                             <i data-lucide="phone-call" class="text-clinical-blue w-5 h-5"></i>
                             <span>+91 97080 59081</span>
                         </a>
+                        <!-- Footer WhatsApp QR -->
+                        <div class="flex items-center gap-3 bg-white/5 p-3 rounded-2xl border border-white/10 w-fit">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/919708059081" 
+                                 alt="WhatsApp QR" class="w-12 h-12 rounded-lg border border-white/20">
+                            <div>
+                                <p class="text-[9px] font-bold uppercase tracking-wider text-blue-100">Scan to Chat</p>
+                                <p class="text-[8px] opacity-60">Direct Support</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -341,6 +356,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Chatbot UI Components -->
+    <a href="https://wa.me/919708059081"
+        class="fixed bottom-6 right-6 z-[100] bg-green-500 text-white p-4 rounded-full shadow-2xl whatsapp-float">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+    <div class="fixed bottom-6 left-6 z-[100]">
+        <button id="chat-toggle" class="bg-clinical-blue text-white p-4 rounded-full shadow-2xl">
+            <i data-lucide="bot" class="w-8 h-8"></i>
+        </button>
+    </div>
+    <div id="chat-window" class="fixed bottom-24 left-6 w-[350px] h-[550px] bg-white shadow-2xl rounded-2xl z-[100] flex flex-col border border-slate-100 overflow-hidden">
+        <div class="bg-clinical-blue p-4 text-white flex justify-between items-center shadow-md">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+                <span class="font-bold text-sm uppercase tracking-widest">Assistant</span>
+            </div>
+            <button id="close-chat"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+        <div id="chat-content" class="flex-1 overflow-y-auto p-4 flex flex-col bg-slate-50"></div>
+        <div id="chat-input-area" class="hidden p-3 bg-white border-t flex gap-2">
+            <input type="text" id="bot-input" class="flex-1 text-sm p-3 bg-slate-100 rounded-xl outline-none border" placeholder="Type here...">
+            <button id="send-btn" class="bg-clinical-blue text-white p-3 rounded-xl"><i data-lucide="send" class="w-4 h-4"></i></button>
+        </div>
+    </div>
 
     <script>
         lucide.createIcons();
@@ -364,9 +404,124 @@
             };
         }
 
-        // --- GOOGLE SHEETS INTEGRATION ---
+        // --- UNIFIED CHATBOT LOGIC ---
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQmrjUara4qVeEMua8JA3jFnUguv2O0tUyF5P0arjeuFlDwfTNkCZGoLxyaCGNbLG-/exec';
+        const chatWindow = document.getElementById('chat-window');
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatContent = document.getElementById('chat-content');
+        const botInputArea = document.getElementById('chat-input-area');
+        const botInput = document.getElementById('bot-input');
 
+        const prismData = {
+            team: "Lead by **Dr. Ravi Kumar (MPT Neuro)**. We specialize in advanced Neuro, Ortho, and Pediatric rehabilitation.",
+            locations: "**Unit 1:** Begusarai HQ\n**Unit 2:** Gola Road, Patna",
+            treatments: {
+                neuro: { title: "Neuro Rehab", info: "Stroke & SCI recovery using NDT protocols." },
+                ortho: { title: "Ortho Care", info: "Slip Disc & Sciatica manual therapy." }
+            }
+        };
+
+        let bookingStep = 0;
+        let userData = { source: 'Careers Page Bot', name: '', phone: '', location: '', visitType: '', date: '', time: '', address: '', condition: '', paymentProof: '', message: '' };
+
+        chatToggle.onclick = () => {
+            chatWindow.classList.add('open');
+            if (chatContent.innerHTML === "") {
+                appendMsg('bot', "Hi! 👋 How can I help you today?");
+                showMainMenu();
+            }
+        };
+        document.getElementById('close-chat').onclick = () => chatWindow.classList.remove('open');
+
+        function appendMsg(sender, text) {
+            const div = document.createElement('div');
+            div.className = `chat-bubble ${sender === 'bot' ? 'bot-msg' : 'user-msg'}`;
+            div.innerHTML = text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            chatContent.appendChild(div);
+            chatContent.scrollTop = chatContent.scrollHeight;
+        }
+
+        function showMainMenu() {
+            const div = document.createElement('div');
+            div.id = "bot-options";
+            div.className = "flex flex-col gap-2 mt-2";
+            div.innerHTML = `
+                <button onclick="handleBotAction('book')" class="text-left text-xs bg-clinical-blue text-white p-3 rounded-xl font-bold uppercase shadow-md italic">📅 Diagnostic Booking</button>
+                <button onclick="handleBotAction('loc')" class="text-left text-xs bg-white border border-slate-200 p-3 rounded-xl font-semibold">📍 Clinic Locations</button>
+                <button onclick="handleBotAction('help')" class="text-left text-xs bg-slate-800 text-white p-3 rounded-xl font-bold uppercase shadow-md">💬 Message Us</button>
+            `;
+            chatContent.appendChild(div);
+            botInputArea.classList.add('hidden');
+        }
+
+        function handleBotAction(type) {
+            if(document.getElementById('bot-options')) document.getElementById('bot-options').remove();
+            if(type === 'loc') { appendMsg('bot', prismData.locations); setTimeout(showMainMenu, 2000); }
+            else if(type === 'help') { appendMsg('bot', "Type your query below:"); bookingStep = 50; botInputArea.classList.remove('hidden'); botInput.focus(); }
+            else if(type === 'book') {
+                appendMsg('bot', "Choose visit type:");
+                const div = document.createElement('div'); div.id = "bot-options"; div.className = "flex flex-col gap-2 mt-2";
+                div.innerHTML = `
+                    <button onclick="startBooking('Clinic')" class="bg-clinical-blue text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏥 Clinic Visit</button>
+                    <button onclick="startBooking('Home')" class="bg-slate-800 text-white px-4 py-2 rounded-lg text-xs font-bold uppercase">🏠 Home Visit</button>
+                `;
+                chatContent.appendChild(div);
+            }
+        }
+
+        function startBooking(type) {
+            if(document.getElementById('bot-options')) document.getElementById('bot-options').remove();
+            userData.visitType = type;
+            appendMsg('bot', "Patient's **Full Name**?");
+            bookingStep = 1; botInputArea.classList.remove('hidden'); botInput.focus();
+        }
+
+        async function processBotInput() {
+            const val = botInput.value.trim();
+            if(!val) return;
+            appendMsg('user', val);
+            botInput.value = "";
+            if (bookingStep === 50) { userData.message = val; appendMsg('bot', "Phone Number?"); bookingStep = 51; return; }
+            if (bookingStep === 51) { userData.phone = val; saveAndConfirm("Sent!"); return; }
+
+            switch(bookingStep) {
+                case 1: userData.name = val; appendMsg('bot', "10-digit **Phone Number**?"); bookingStep = 2; break;
+                case 2: userData.phone = val; appendMsg('bot', "Preferred **Date**?"); bookingStep = 3; break;
+                case 3: userData.date = val; appendMsg('bot', "Describe **Problem**:"); bookingStep = 4; break;
+                case 4: userData.condition = val; askPaymentUI(); break;
+                case 20: userData.paymentProof = val; saveAndConfirm("✅ Confirmed!"); break;
+            }
+        }
+
+        function askPaymentUI() {
+            const payDiv = document.createElement('div');
+            payDiv.className = "bot-msg chat-bubble mb-4";
+            payDiv.innerHTML = `
+                <p class="mb-3">To finalize, pay **₹500** booking fee.</p>
+                <p class="mb-3">UPI: <strong>dr.raviphysio01@oksbi</strong></p>
+                <div class="bg-white p-3 rounded-xl border border-slate-200 mb-3 flex flex-col items-center">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=dr.raviphysio01@oksbi%26pn=Prism%20Healthcare%26am=500%26cu=INR" class="w-32 h-32">
+                    <p class="text-[9px] text-slate-400 mt-2 uppercase font-bold">Scan to Pay</p>
+                </div>
+                <button onclick="paymentPaidDone()" class="bg-clinical-blue text-white p-3 rounded-xl text-xs font-bold w-full">✅ I Have Paid</button>
+            `;
+            chatContent.appendChild(payDiv);
+            chatContent.scrollTop = chatContent.scrollHeight;
+            botInputArea.classList.add('hidden');
+        }
+
+        function paymentPaidDone() { appendMsg('user', "I have paid"); appendMsg('bot', "Enter **Transaction ID**:"); bookingStep = 20; botInputArea.classList.remove('hidden'); botInput.focus(); }
+
+        async function saveAndConfirm(txt) {
+            try { await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(userData) }); appendMsg('bot', txt); } 
+            catch (e) { appendMsg('bot', "Details recorded."); }
+            bookingStep = 0; botInputArea.classList.add('hidden'); setTimeout(showMainMenu, 3000);
+        }
+
+        document.getElementById('send-btn').onclick = processBotInput;
+        botInput.onkeypress = (e) => { if(e.key === 'Enter') processBotInput(); };
+
+        // --- CAREER FORM LOGIC ---
         const careerForm = document.getElementById('careerForm');
         if(careerForm) {
             careerForm.onsubmit = async (e) => {
@@ -387,31 +542,19 @@
 
                 try {
                     await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
-                    alert("Application submitted successfully! Our clinical manager will review and get back to you.");
+                    alert("Application submitted successfully!");
                     e.target.reset();
-                } catch (err) {
-                    alert("Submission recorded. We will review your profile shortly.");
-                    e.target.reset();
-                } finally {
-                    btn.innerText = "Submit Application";
-                    btn.disabled = false;
-                }
+                } catch (err) { alert("Submission recorded."); e.target.reset(); }
+                finally { btn.innerText = "Submit Application"; btn.disabled = false; }
             };
         }
 
-        // Scroll reveal animation logic
         function revealElements() {
             document.querySelectorAll('.reveal').forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < window.innerHeight - elementVisible) {
-                    el.classList.add('active');
-                }
+                if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('active');
             });
         }
-
         window.addEventListener('scroll', revealElements);
-        // Trigger once on load
         revealElements();
     </script>
 </body>
